@@ -53,16 +53,16 @@ public class Player_Movimiento : MonoBehaviour
 
     void GestionOrientacion()
     {
-        if(_inputX < 0.01 && _miraDerecha == true)
+        if(_inputX > 0.01 && _miraDerecha == false)
         {
-            transform.Rotate(0, 180, 0);
-            _miraDerecha = false;
-        }
-        else if (_inputX > 0.01 && _miraDerecha == false)
-        {
-            transform.Rotate(0, 0, 0);
             _miraDerecha = true;
+            transform.Rotate(0, 180, 0);
         }
+        else if (_inputX < -0.01 && _miraDerecha == true)
+        {
+            _miraDerecha = false;
+            transform.Rotate(0, 180, 0);
+        } 
     }
 
     private void OnDrawGizmos()
