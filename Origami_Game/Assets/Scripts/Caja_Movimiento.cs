@@ -5,30 +5,63 @@ using UnityEngine;
 public class Caja_Movimiento : MonoBehaviour
 {
     Rigidbody2D _rb;
+    GameObject player;
 
-    Transform playerPos;
-
+    [Tooltip("Peso que ha de tener la caja.")]
     public int pesoCaja;
+    [Tooltip("Longitud del rayo usado para el raycast.")]
+    public float distRayo = 0.3f;
+
+    [Space]
+    [Tooltip("Posicion del raycast de la izquierda.")]
+    public Transform raycastIzq;
+    [Tooltip("Posicion del raycast de la izquierda.")]
+    public Transform raycastDer;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-
-        _rb.mass = pesoCaja;
+        player = GameObject.FindGameObjectWithTag("Player");        
     }
-
+    
+    //Función llamada por Player_Movimiento cuanco el jugador empuja la caja.
     public void EmpujarCaja()
     {
-        transform.parent = playerPos;
-        Destroy(_rb);
+        RaycastHit2D rayIzq = Physics2D.Raycast(raycastIzq.position, -transform.up, distRayo);
+        RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayo);
+
+        if (rayIzq.collider != null || rayDer.collider != null)
+            _rb.velocity = player.GetComponent<Rigidbody2D>().velocity * 0.85f;
     }
 
+    //Función llamada por Player_Movimiento cuanco el jugador deja la caja.
     public void DejarCaja()
     {
-        transform.parent = null;
-        _rb = gameObject.AddComponent<Rigidbody2D>();
-        _rb.mass = pesoCaja;
-        _rb.isKinematic = true;
+        _rb.velocity = Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
+        {
+            _rb.mass = 100;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
+        {
+            _rb.mass = 1;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(raycastIzq.position, raycastIzq.position + (-transform.up) * distRayo);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(raycastDer.position, raycastDer.position + (-transform.up) * distRayo);
     }
 }

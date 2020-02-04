@@ -21,10 +21,13 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Posición de los pies para el detector de colisión con el suelo.")]
     public Transform piesPos;
     [Tooltip("Longitud del rayo usado para el raycast.")]
-    public float distRayo = 1f;
+    public float distRayoCaja = 1;
+    [Tooltip("Longitud del rayo usado para el raycast.")]
+    public float distRayoPies = .2f;
 
-    bool _miraDerecha = true;
-    bool _conCaja = false;
+    [HideInInspector]
+    public bool _conCaja = false;
+    bool _miraDerecha = true;    
     bool _enSuelo = true;
     
     //Fuerza del salto del personaje.
@@ -38,7 +41,13 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Seleccionar la layer Suelo.")]
     public LayerMask capaSuelo;
     [Tooltip("Seleccionar la layer Caja.")]
-    public LayerMask layerCaja;
+    public LayerMask capaCaja;
+
+    [Space]
+    [Tooltip("Posicion del raycast de la izquierda.")]
+    public Transform raycastIzq;
+    [Tooltip("Posicion del raycast de la izquierda.")]
+    public Transform raycastDer;
 
     void Start()
     {
@@ -59,14 +68,22 @@ public class Player_Movimiento : MonoBehaviour
 
         if(!_conCaja)
             GestionOrientacion();
+
         
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
     void GestionMovimiento(float velocidad)
     {
+        RaycastHit2D rayIzq = Physics2D.Raycast(raycastIzq.position, -transform.up, distRayoCaja);
+        RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayoCaja);
+
+        if (rayIzq.collider != null || rayDer.collider != null)
+            _enSuelo = true;
+        else
+            _enSuelo = false;
+
         _rb.velocity = new Vector2((_inputX * velocidad), _rb.velocity.y);
-        _enSuelo = Physics2D.OverlapCircle(piesPos.position, 0.2f, capaSuelo);
 
         //Detectar input salto.
         if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja)
@@ -93,27 +110,29 @@ public class Player_Movimiento : MonoBehaviour
     //Función que se encarga de qué hacer cuando se empuja o tira de una caja.
     void GestionCaja()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, transform.forward, distRayo, layerCaja);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0,.1f,0), transform.forward, distRayoCaja, capaCaja);
 
         if (ray.collider != null)
         {
-            if (Input.GetButtonDown("Empujar") && _enSuelo)
+            if (Input.GetButton("Empujar") && _enSuelo)
             {
                 Debug.Log("Empujando");
                 _conCaja = true;
                 _caja = ray.transform.gameObject.GetComponent<Caja_Movimiento>();
-                
-                _caja.EmpujarCaja();                
+
+                _caja.EmpujarCaja();
             }
 
             if (Input.GetButtonUp("Empujar"))
             {
                 Debug.Log("Soltando");
                 _conCaja = false;
-                
+
                 _caja.DejarCaja();
             }
         }
+        else
+            _conCaja = false;
 
         if (_conCaja)
             _velocidadPlayer = velocidadEmpujando;
@@ -125,9 +144,10 @@ public class Player_Movimiento : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(piesPos.position, 0.2f);
+        Gizmos.DrawLine(raycastIzq.position, raycastIzq.position + (-transform.up) * distRayoPies);
+        Gizmos.DrawLine(raycastDer.position, raycastDer.position + (-transform.up) * distRayoPies);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * distRayo);
+        Gizmos.DrawLine(transform.position + new Vector3(0, .1f, 0), transform.position + new Vector3(0, .1f, 0) + transform.right * distRayoCaja);
     }
 }
