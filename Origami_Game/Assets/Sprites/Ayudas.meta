@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Origami_Game/Assets/Sprites/Ayudas.meta
 guid: c8fb7e3cc9c32494e94cdd4df39c2994
+=======
+guid: 29dd4e11b8f81e04194273bae15aaeb8
+>>>>>>> menu:Origami_Game/Assets/Graficos.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
