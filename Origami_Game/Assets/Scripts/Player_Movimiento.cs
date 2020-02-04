@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class Player_Movimiento : MonoBehaviour
 {
+    Animator _anim;
     Rigidbody2D _rb;
     Caja_Movimiento _caja;
 
@@ -49,9 +50,13 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Posicion del raycast de la izquierda.")]
     public Transform raycastDer;
 
+    //Variables Animator
+    bool isMoving = false;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
         
         //Ajuste de la gravedad para el salto.
         _rb.gravityScale = (2 * (alturaSalto *= 10)) / Mathf.Pow(tiempoSalto, 2);
@@ -65,11 +70,10 @@ public class Player_Movimiento : MonoBehaviour
 
         GestionMovimiento(_velocidadPlayer);
         GestionCaja();
+        GestionAnimacion();
 
         if(!_conCaja)
-            GestionOrientacion();
-
-        
+            GestionOrientacion();        
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
@@ -138,6 +142,11 @@ public class Player_Movimiento : MonoBehaviour
             _velocidadPlayer = velocidadEmpujando;
         else
             _velocidadPlayer = velocidadEnSuelo;
+    }
+
+    void GestionAnimacion()
+    {
+        
     }
 
     //Dibuja el círculo de la posición de los pies.
