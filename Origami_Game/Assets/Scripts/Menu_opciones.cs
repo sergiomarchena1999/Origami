@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu_opciones : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject menuOpciones;
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Volver()
     {
-        
+        SceneManager.UnloadSceneAsync("Menu opciones");
+    }
+    public void Continuar()
+    {
+        //guardar las opciones que se han usado
+        SceneManager.UnloadSceneAsync("Menu opciones");
+
     }
 }

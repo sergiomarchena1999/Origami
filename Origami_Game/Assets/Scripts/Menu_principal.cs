@@ -16,7 +16,7 @@ public class Menu_principal : MonoBehaviour
     public void NuevaPartida()
     {
         //TODO: Borrar el player pref
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Menu pausa");
     }
     public void CargarPartida()
     {
@@ -26,12 +26,11 @@ public class Menu_principal : MonoBehaviour
 
     public void Paginas()
     {
-        SceneManager.LoadScene("Menu opciones");
     }
 
     public void Opciones()
     {
-        SceneManager.LoadScene("Menu opciones");
+        SceneManager.LoadScene("Menu opciones", LoadSceneMode.Additive);
     }
 
     public void Exit()

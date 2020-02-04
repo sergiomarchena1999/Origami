@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 523001566}
   - component: {fileID: 523001567}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Slider_efectos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 641030230}
   - component: {fileID: 641030229}
   - component: {fileID: 641030228}
+  - component: {fileID: 641030232}
   m_Layer: 5
   m_Name: Canvas Menu opciones
   m_TagString: Untagged
@@ -1064,6 +1065,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &641030232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641030227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d4b9c889daf9e47ad1f88018740d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuOpciones: {fileID: 1580307230}
 --- !u!1 &641037351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1306,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673700884}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 641030232}
+        m_MethodName: Volver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &673700884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1985,7 +2010,7 @@ GameObject:
   - component: {fileID: 1043792175}
   - component: {fileID: 1043792176}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Slider_musica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2305,7 +2330,7 @@ GameObject:
   - component: {fileID: 1487105948}
   - component: {fileID: 1487105949}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Slider_volumen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2394,7 +2419,7 @@ GameObject:
   - component: {fileID: 1518298513}
   - component: {fileID: 1518298514}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle_vibracion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2664,7 +2689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.10786757, g: 0.1424624, b: 0.2264151, a: 0.392}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2771,7 +2796,7 @@ GameObject:
   - component: {fileID: 1630278038}
   - component: {fileID: 1630278039}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle_pantalla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3035,7 +3060,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1817047824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 641030232}
+        m_MethodName: Continuar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1817047824
 MonoBehaviour:
   m_ObjectHideFlags: 0
