@@ -29,7 +29,7 @@ public class Player_Movimiento : MonoBehaviour
     [HideInInspector]
     public bool _conCaja = false;
     bool _miraDerecha = true;    
-    bool _enSuelo = true;
+    public bool _enSuelo = false;
     
     //Fuerza del salto del personaje.
     float fuerzaSalto;
@@ -52,6 +52,8 @@ public class Player_Movimiento : MonoBehaviour
 
     //Variables Animator
     bool isMoving = false;
+    bool jump = false;
+    float _velocidadY;
 
     void Start()
     {
@@ -66,7 +68,7 @@ public class Player_Movimiento : MonoBehaviour
     
     void Update()
     {
-        _inputX = Input.GetAxisRaw("Horizontal");
+        
 
         GestionMovimiento(_velocidadPlayer);
         GestionCaja();
@@ -79,12 +81,12 @@ public class Player_Movimiento : MonoBehaviour
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
     void GestionMovimiento(float velocidad)
     {
-        RaycastHit2D rayIzq = Physics2D.Raycast(raycastIzq.position, -transform.up, distRayoCaja);
-        RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayoCaja);
+        RaycastHit2D rayIzq = Physics2D.Raycast(raycastIzq.position, -transform.up, distRayoPies, capaSuelo);
+        RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayoPies, capaSuelo);        
 
         if (rayIzq.collider != null || rayDer.collider != null)
             _enSuelo = true;
-        else
+        else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
 
         _rb.velocity = new Vector2((_inputX * velocidad), _rb.velocity.y);
@@ -93,13 +95,18 @@ public class Player_Movimiento : MonoBehaviour
         if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja)
         {
             _rb.velocity = (Vector2.up * fuerzaSalto);
+            _anim.SetTrigger("Jump");
         }
+
+        _velocidadY = _rb.velocity.y;
     }
 
     //Esta función cambia la orientación al personaje cuando gira.
     void GestionOrientacion()
     {
-        if(_inputX > 0.01 && _miraDerecha == false)
+        _inputX = Input.GetAxisRaw("Horizontal");
+
+        if (_inputX > 0.01 && _miraDerecha == false)
         {
             _miraDerecha = true;
             transform.Rotate(0, 180, 0);
@@ -136,7 +143,9 @@ public class Player_Movimiento : MonoBehaviour
             }
         }
         else
+        {
             _conCaja = false;
+        }
 
         if (_conCaja)
             _velocidadPlayer = velocidadEmpujando;
@@ -144,9 +153,17 @@ public class Player_Movimiento : MonoBehaviour
             _velocidadPlayer = velocidadEnSuelo;
     }
 
+    //Función que se encarga de mandarle información al Animator.
     void GestionAnimacion()
     {
-        
+        if (_inputX != 0)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        _anim.SetBool("Running", isMoving);
+        _anim.SetBool("Grounded", _enSuelo);
+        _anim.SetFloat("VelocidadY", _velocidadY);
     }
 
     //Dibuja el círculo de la posición de los pies.

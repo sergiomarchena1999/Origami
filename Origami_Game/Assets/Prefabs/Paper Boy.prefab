@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 7437024032859160181}
   - component: {fileID: 7437024032859160182}
   - component: {fileID: 7437024032859160186}
+  - component: {fileID: 1299124286}
   m_Layer: 0
   m_Name: Paper Boy
   m_TagString: Player
@@ -134,12 +135,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fee356b2990aae94ebd6af136a88432d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0f7ad9943268b64d8f52174c943938e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.75, y: 12.94}
+  m_Size: {x: 1.504, y: 2.422}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -162,8 +163,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.95, y: 2.588}
-    newSize: {x: 9.75, y: 12.94}
+    oldSize: {x: 1.504, y: 2.422}
+    newSize: {x: 1.504, y: 2.422}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -209,7 +210,8 @@ MonoBehaviour:
   velocidadEnSuelo: 5
   velocidadEmpujando: 3
   piesPos: {fileID: 0}
-  distRayo: 1
+  distRayoCaja: 1
+  distRayoPies: 0.2
   _conCaja: 0
   capaSuelo:
     serializedVersion: 2
@@ -219,3 +221,22 @@ MonoBehaviour:
     m_Bits: 512
   raycastIzq: {fileID: 2215030470881939783}
   raycastDer: {fileID: 7302016494830188926}
+--- !u!95 &1299124286
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7437024032859160183}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1d961e20b51939419f304ea4fa866b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
