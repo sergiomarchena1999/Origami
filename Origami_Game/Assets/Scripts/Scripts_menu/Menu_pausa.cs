@@ -8,7 +8,6 @@ public class Menu_pausa : MonoBehaviour
 {
     public GameObject menuPausa;
 
-
     public void Volver()
     {
         menuPausa.SetActive(false);
@@ -16,6 +15,7 @@ public class Menu_pausa : MonoBehaviour
 
     public void Paginas()
     {
+
     }
 
     public void Opciones()
@@ -27,11 +27,10 @@ public class Menu_pausa : MonoBehaviour
     {
         SceneManager.LoadScene("Menu principal");
     }
+
     void Pausa()
     {
         Time.timeScale = 0;
         Time.timeScale = 1;
-    }
-  
+    }  
 }
-
