@@ -6,16 +6,21 @@ using UnityEngine.UI;
 
 public class Menu_pausa : MonoBehaviour
 {
-    public GameObject menuPausa;
+    private void Start()
+    {
+        Time.timeScale = 0f;
+    }
 
     public void Volver()
     {
-        menuPausa.SetActive(false);
+        Time.timeScale = 1;
+        GameManager.pausa = false;
+        SceneManager.UnloadSceneAsync("Menu pausa");
     }
 
     public void Paginas()
     {
-
+        SceneManager.LoadScene("Menu paginas", LoadSceneMode.Additive);
     }
 
     public void Opciones()
@@ -25,12 +30,9 @@ public class Menu_pausa : MonoBehaviour
 
     public void Exit()
     {
-        SceneManager.LoadScene("Menu principal");
+        Time.timeScale = 1;
+        GameManager.pausa = false;
+        SceneManager.UnloadSceneAsync("Menu pausa");
     }
 
-    void Pausa()
-    {
-        Time.timeScale = 0;
-        Time.timeScale = 1;
-    }  
 }
