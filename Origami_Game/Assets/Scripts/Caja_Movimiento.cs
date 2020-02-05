@@ -31,7 +31,10 @@ public class Caja_Movimiento : MonoBehaviour
         RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayo);
 
         if (rayIzq.collider != null || rayDer.collider != null)
+        {
+            Debug.Log("Me empujan.");
             _rb.velocity = player.GetComponent<Rigidbody2D>().velocity * 0.85f;
+        }       
     }
 
     //Función llamada por Player_Movimiento cuanco el jugador deja la caja.
@@ -52,7 +55,7 @@ public class Caja_Movimiento : MonoBehaviour
     {
         if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
         {
-            _rb.mass = 1;
+            _rb.mass = pesoCaja;
         }
     }
 
