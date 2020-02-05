@@ -15,6 +15,8 @@ public class Player_Movimiento : MonoBehaviour
     public float tiempoSalto;
     [Tooltip("Altura a la que llega el salto del personaje.")]
     public float alturaSalto;
+    [Tooltip("Velocidad a la que el jugador va al usar el dash.")]
+    public float velocidadDash = 5f;
     [Tooltip("Velocidad máxima del personaje al correr.")]
     public float velocidadEnSuelo = 5f;
     [Tooltip("Velocidad máxima del personaje al empujar o tirar.")]
@@ -93,6 +95,13 @@ public class Player_Movimiento : MonoBehaviour
         {
             _rb.velocity = (Vector2.up * fuerzaSalto);
             _anim.SetTrigger("Jump");
+        }
+
+        //Detectar input dash.
+        if (Input.GetButtonDown("Dash") && !_conCaja)
+        {
+            _rb.AddForce(transform.forward * velocidadDash);
+            _anim.SetTrigger("Dash");
         }
 
         _velocidadY = _rb.velocity.y;
