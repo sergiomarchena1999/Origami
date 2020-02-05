@@ -52,7 +52,6 @@ public class Player_Movimiento : MonoBehaviour
 
     //Variables Animator
     bool isMoving = false;
-    bool jump = false;
     float _velocidadY;
 
     void Start()
@@ -68,8 +67,6 @@ public class Player_Movimiento : MonoBehaviour
     
     void Update()
     {
-        
-
         GestionMovimiento(_velocidadPlayer);
         GestionCaja();
         GestionAnimacion();
