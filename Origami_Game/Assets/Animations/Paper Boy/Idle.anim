@@ -33,6 +33,20 @@ AnimationClip:
       value: {fileID: 21300000, guid: deb3e1bb2b87b8447bcb47d2de07a9e2, type: 3}
     - time: 0.71666664
       value: {fileID: 21300000, guid: ec0bd4e0eec0e5a4591433c0a2a05fef, type: 3}
+    - time: 0.81666666
+      value: {fileID: 21300000, guid: f0f7ad9943268b64d8f52174c943938e, type: 3}
+    - time: 0.93333334
+      value: {fileID: 21300000, guid: 37ef0d02c15b844409ff943dfaf62c47, type: 3}
+    - time: 1.05
+      value: {fileID: 21300000, guid: 8ac95134d53cccb4ca3bea407ac498e7, type: 3}
+    - time: 1.1666666
+      value: {fileID: 21300000, guid: 304244b9c318963458d3b6b1ba66c63f, type: 3}
+    - time: 1.3
+      value: {fileID: 21300000, guid: 784cabc1801f3604b982eabbdfa1788a, type: 3}
+    - time: 1.4166666
+      value: {fileID: 21300000, guid: deb3e1bb2b87b8447bcb47d2de07a9e2, type: 3}
+    - time: 1.5333333
+      value: {fileID: 21300000, guid: ec0bd4e0eec0e5a4591433c0a2a05fef, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -59,12 +73,19 @@ AnimationClip:
     - {fileID: 21300000, guid: 784cabc1801f3604b982eabbdfa1788a, type: 3}
     - {fileID: 21300000, guid: deb3e1bb2b87b8447bcb47d2de07a9e2, type: 3}
     - {fileID: 21300000, guid: ec0bd4e0eec0e5a4591433c0a2a05fef, type: 3}
+    - {fileID: 21300000, guid: f0f7ad9943268b64d8f52174c943938e, type: 3}
+    - {fileID: 21300000, guid: 37ef0d02c15b844409ff943dfaf62c47, type: 3}
+    - {fileID: 21300000, guid: 8ac95134d53cccb4ca3bea407ac498e7, type: 3}
+    - {fileID: 21300000, guid: 304244b9c318963458d3b6b1ba66c63f, type: 3}
+    - {fileID: 21300000, guid: 784cabc1801f3604b982eabbdfa1788a, type: 3}
+    - {fileID: 21300000, guid: deb3e1bb2b87b8447bcb47d2de07a9e2, type: 3}
+    - {fileID: 21300000, guid: ec0bd4e0eec0e5a4591433c0a2a05fef, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.7333333
+    m_StopTime: 1.55
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -83,4 +104,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SonidoIdle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

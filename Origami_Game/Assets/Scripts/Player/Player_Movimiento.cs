@@ -12,15 +12,19 @@ public class Player_Movimiento : MonoBehaviour
 
     [Header("Movimiento")]
     [Tooltip("Tiempo que está el personaje en el aire durante un salto.")]
-    public float tiempoSalto;
+    public float tiempoSalto = 3f;
     [Tooltip("Altura a la que llega el salto del personaje.")]
-    public float alturaSalto;
+    public float alturaSalto = 4f;
+    [Tooltip("Tiempo que tienes que esperar hasta poder usar el siguiente dash.")]
+    public float tiempoDash = .4f;
+    [Tooltip("Velocidad a la que el jugador va al usar el dash.")]
+    public float velocidadDash = 20f;
+    [Tooltip("Cuanto más grande, menos vertical es el dash.")]
+    public float verticalidadDash = 2f;
     [Tooltip("Velocidad máxima del personaje al correr.")]
     public float velocidadEnSuelo = 5f;
     [Tooltip("Velocidad máxima del personaje al empujar o tirar.")]
     public float velocidadEmpujando = 3f;
-    [Tooltip("Posición de los pies para el detector de colisión con el suelo.")]
-    public Transform piesPos;
     [Tooltip("Longitud del rayo usado para el raycast.")]
     public float distRayoCaja = 1;
     [Tooltip("Longitud del rayo usado para el raycast.")]
@@ -28,16 +32,22 @@ public class Player_Movimiento : MonoBehaviour
 
     [HideInInspector]
     public bool _conCaja = false;
-    bool _miraDerecha = true;    
+    [HideInInspector]
     public bool _enSuelo = false;
-    
+    bool _cargandoDash = false;
+    bool _miraDerecha = true;
+
     //Fuerza del salto del personaje.
     float fuerzaSalto;
     //Variable que guarda hacia que lado en el eje horizontal se quiere mover el jugador.
     float _inputX;
     //Variable que almacena la velocidad real del jugador.
     float _velocidadPlayer;
-    
+    //Variable que guarda la gravedad ajustada al salto.
+    float _newGravity;
+
+    public float _timerDash = 0f;
+
     [Header("Layers")]
     [Tooltip("Seleccionar la layer Suelo.")]
     public LayerMask capaSuelo;
@@ -60,33 +70,38 @@ public class Player_Movimiento : MonoBehaviour
         _anim = GetComponent<Animator>();
         
         //Ajuste de la gravedad para el salto.
-        _rb.gravityScale = (2 * (alturaSalto *= 10)) / Mathf.Pow(tiempoSalto, 2);
+        _newGravity = (2 * (alturaSalto *= 10)) / Mathf.Pow(tiempoSalto, 2);
+        _rb.gravityScale = _newGravity;
         //Calculo de la fuerza del salto.
         fuerzaSalto = _rb.gravityScale * tiempoSalto;
     }
     
     void Update()
     {
-        GestionMovimiento(_velocidadPlayer);
+        GestionMovimiento();
         GestionCaja();
+        GestionDash();
         GestionAnimacion();
 
-        if(!_conCaja)
+        if(!_conCaja || _cargandoDash)
             GestionOrientacion();        
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
-    void GestionMovimiento(float velocidad)
+    void GestionMovimiento()
     {
         RaycastHit2D rayIzq = Physics2D.Raycast(raycastIzq.position, -transform.up, distRayoPies, capaSuelo);
-        RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayoPies, capaSuelo);        
+        RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayoPies, capaSuelo);
+
+        _inputX = Input.GetAxisRaw("Horizontal");
 
         if (rayIzq.collider != null || rayDer.collider != null)
             _enSuelo = true;
         else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
-
-        _rb.velocity = new Vector2((_inputX * velocidad), _rb.velocity.y);
+    
+        if(!_cargandoDash)
+            _rb.velocity = new Vector2((_inputX * _velocidadPlayer), _rb.velocity.y);
 
         //Detectar input salto.
         if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja)
@@ -98,11 +113,34 @@ public class Player_Movimiento : MonoBehaviour
         _velocidadY = _rb.velocity.y;
     }
 
+    void GestionDash()
+    {
+        //Detectar input dash.
+        if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash)
+        {
+            _timerDash = Time.time;
+            _cargandoDash = true;
+            _anim.SetTrigger("Dash");
+
+            _rb.velocity = (transform.right * velocidadDash);
+        }
+
+        //Timer Dash.
+        if (Time.time > _timerDash + tiempoDash && _cargandoDash)
+        {
+            Debug.Log("Ya puedes usar el dash.");
+            _cargandoDash = false;
+        }
+
+        if (_cargandoDash)
+            _rb.gravityScale = _newGravity/verticalidadDash;
+        else
+            _rb.gravityScale = _newGravity;
+    }
+
     //Esta función cambia la orientación al personaje cuando gira.
     void GestionOrientacion()
     {
-        _inputX = Input.GetAxisRaw("Horizontal");
-
         if (_inputX > 0.01 && _miraDerecha == false)
         {
             _miraDerecha = true;
