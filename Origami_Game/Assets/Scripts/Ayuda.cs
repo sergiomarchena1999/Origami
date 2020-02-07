@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Ayuda : MonoBehaviour
 {
-    public SpriteRenderer fotoJump;
+    GameObject imagenAyuda;
+    
+
 
     void Start()
     {
-        
+        imagenAyuda = transform.Find("Ayuda").gameObject;
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Pito");
-        if(collision.transform.name == "Paper Boy")
+        if(collision.transform.CompareTag("Player"))
         {
-            fotoJump.enabled = true;
+            imagenAyuda.SetActive(true);
+           
             Debug.Log("Pene");
         }
     }

@@ -91,10 +91,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3584986323295675312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 209d42db539a9f64cb50c11a329f8f44, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ab485af13bd61e4184d51148bc797f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPagina: 0
+  fotoJump: {fileID: 0}
+  fotoMove: {fileID: 0}
 --- !u!61 &3584986323295675313
 BoxCollider2D:
   m_ObjectHideFlags: 0
