@@ -27,9 +27,9 @@ public class MuertePlayer : MonoBehaviour
 
             _myAnim.Play("Death");
             _myPS.Play(); 
-            SceneManager.LoadScene(("Menu Muerte"), LoadSceneMode.Additive);
+            SceneManager.LoadScene(("Menu muerte"), LoadSceneMode.Additive);
             Destroy(GetComponent<Player_Movimiento>());
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 6f);
             
         }
     }

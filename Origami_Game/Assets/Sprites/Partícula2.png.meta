@@ -1,31 +1,46 @@
 fileFormatVersion: 2
-guid: 74f008a84d7812a4db5126a1ea58e7c2
+guid: 999f41ae09bcf22428f8fe7a819b274c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3752018539738330147
-    second: Particula2_0
+      213: 5288625896763373815
+    second: "Part\xEDcula2_0"
   - first:
-      213: 6996530924911130273
-    second: Particula2_1
+      213: -6331574542679483378
+    second: "Part\xEDcula2_1"
   - first:
-      213: -6611595895509705692
-    second: Particula2_2
+      213: 323511915361694878
+    second: "Part\xEDcula2_2"
   - first:
-      213: -7291370955509457288
-    second: Particula2_3
+      213: -1854441787287645687
+    second: "Part\xEDcula2_3"
   - first:
-      213: 5991270234474631185
-    second: Particula2_4
+      213: -3706776280834110871
+    second: "Part\xEDcula2_4"
   - first:
-      213: -6727405552017378966
-    second: Particula2_5
+      213: -8652095231252504068
+    second: "Part\xEDcula2_6"
   - first:
-      213: -8831071692185605453
-    second: Particula2_6
+      213: -291219583639005007
+    second: "Part\xEDcula2_7"
   - first:
-      213: -7249648521108348330
-    second: Particula2_7
+      213: 6772298057507746528
+    second: "Part\xEDcula2_8"
+  - first:
+      213: 3671192123205951058
+    second: "Part\xEDcula2_9"
+  - first:
+      213: -8397158344329214932
+    second: "Part\xEDcula2_10"
+  - first:
+      213: -4004216193843126312
+    second: "Part\xEDcula2_11"
+  - first:
+      213: 8012011451964800049
+    second: "Part\xEDcula2_12"
+  - first:
+      213: -383470312487768976
+    second: "Part\xEDcula2_13"
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,13 +137,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Particula2_0
+      name: "Part\xEDcula2_0"
       rect:
         serializedVersion: 2
         x: 0
-        y: 340
-        width: 400
-        height: 340
+        y: 94
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf317bb1f5f6374b8cd2249e8071d70
-      internalID: 3752018539738330147
+      spriteID: 836a5a55001aa3b4b8c655b71bb8a397
+      internalID: 5288625896763373815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_1
+      name: "Part\xEDcula2_1"
       rect:
         serializedVersion: 2
-        x: 400
-        y: 340
-        width: 400
-        height: 340
+        x: 100
+        y: 94
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0668e42ccbfcd884ebb55b62116066e6
-      internalID: 6996530924911130273
+      spriteID: 3ea65b0cd6a20d74aa95e7f999fcbec7
+      internalID: -6331574542679483378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_2
+      name: "Part\xEDcula2_2"
       rect:
         serializedVersion: 2
-        x: 800
-        y: 340
-        width: 400
-        height: 340
+        x: 200
+        y: 94
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54dbbd80a1ff2c1469e5403b09df7eb9
-      internalID: -6611595895509705692
+      spriteID: 4282703a8fb14fa4b9e7da1f360a7029
+      internalID: 323511915361694878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_3
+      name: "Part\xEDcula2_3"
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 340
-        width: 400
-        height: 340
+        x: 318
+        y: 94
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +214,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a129d1c27d99d54bbc72175f0cba4be
-      internalID: -7291370955509457288
+      spriteID: 02805574d726039419d5fb2ab1960414
+      internalID: -1854441787287645687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_4
+      name: "Part\xEDcula2_4"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 94
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10491e99dc60054798655c6372c62c8
+      internalID: -3706776280834110871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Part\xEDcula2_6"
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 94
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc6c8682ecb9ad4c803d11e535e67a1
+      internalID: -8652095231252504068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Part\xEDcula2_7"
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 400
-        height: 340
+        y: 1
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5490b916ce82d4dac8c76996c27be0
-      internalID: 5991270234474631185
+      spriteID: f8b5f992749afc3479d0402f754879e1
+      internalID: -291219583639005007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_5
+      name: "Part\xEDcula2_8"
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 400
-        height: 340
+        x: 108
+        y: 1
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,20 +298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b191a147afc2c784dbb9bf2a24da1312
-      internalID: -6727405552017378966
+      spriteID: 56dd1c0e55fd7284b8972532b83c3f13
+      internalID: 6772298057507746528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_6
+      name: "Part\xEDcula2_9"
       rect:
         serializedVersion: 2
-        x: 800
-        y: 0
-        width: 400
-        height: 340
+        x: 212
+        y: 1
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93256ea04204a894d9e374c53f55d88d
-      internalID: -8831071692185605453
+      spriteID: f4b65987b6f61674b80d53fe7dbc7b93
+      internalID: 3671192123205951058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particula2_7
+      name: "Part\xEDcula2_10"
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 325
         y: 0
-        width: 400
-        height: 340
+        width: 100
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,8 +340,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b050baa40c231f546b116594e8630b09
-      internalID: -7249648521108348330
+      spriteID: 9736484cf88e59e4e8e07a53c3c7388c
+      internalID: -8397158344329214932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Part\xEDcula2_11"
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 0
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3486c9dd5501049852994d796f88af
+      internalID: -4004216193843126312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Part\xEDcula2_12"
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de9121cf893b7e4ba5b66720dfc122e
+      internalID: 8012011451964800049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Part\xEDcula2_13"
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 0
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d02f7e4039c634f8522d2a5cec99a4
+      internalID: -383470312487768976
       vertices: []
       indices: 
       edges: []
