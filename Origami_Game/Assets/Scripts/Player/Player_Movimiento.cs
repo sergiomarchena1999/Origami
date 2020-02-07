@@ -83,7 +83,7 @@ public class Player_Movimiento : MonoBehaviour
         GestionDash();
         GestionAnimacion();
 
-        if(!_conCaja)
+        if(!_conCaja || _cargandoDash)
             GestionOrientacion();        
     }
 
