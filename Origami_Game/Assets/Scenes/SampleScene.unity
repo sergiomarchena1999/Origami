@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f6d4ad44aa6b545827b4c7e25e5be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sonidoIdle: {fileID: 8300000, guid: fd2fbb82ee936b44b9343c34068c9234, type: 3}
   sonidoPaso: {fileID: 8300000, guid: 83b56923d181c92429a753fe4d5c4510, type: 3}
   sonidoDash: {fileID: 8300000, guid: 8d7af437c1feb1541b6fda2f2224aa0b, type: 3}
   sonidoAterrizaje: {fileID: 8300000, guid: 449c015ed50d6f04dab53cae2a129619, type: 3}
