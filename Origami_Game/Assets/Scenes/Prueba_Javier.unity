@@ -219,7 +219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3064206
 BoxCollider2D:
@@ -435,5 +435,74 @@ Transform:
   m_LocalScale: {x: 86.751595, y: 6.5791, z: 6.5791}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1455242294
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6238575
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.709887
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170630853018233118, guid: 0de0ec675de01f24080627e72168508e,
+        type: 3}
+      propertyPath: m_Name
+      value: Paper Boy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0de0ec675de01f24080627e72168508e, type: 3}
