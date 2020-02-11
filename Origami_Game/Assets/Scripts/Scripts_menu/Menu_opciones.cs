@@ -4,18 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class Menu_Opciones : MonoBehaviour
+public class Menu_opciones : MonoBehaviour
 {
     public GameObject menuOpciones;
     
 
-
     // Valorespara el slider
     public AudioMixer mixer;
-
     
-
-
 
     //////////////////////////////////////
     public void Volver()

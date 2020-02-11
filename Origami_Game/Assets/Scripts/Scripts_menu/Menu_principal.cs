@@ -26,6 +26,7 @@ public class Menu_principal : MonoBehaviour
 
     public void Paginas()
     {
+        SceneManager.LoadScene("Menu paginas", LoadSceneMode.Additive);
     }
 
     public void Opciones()
