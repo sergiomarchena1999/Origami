@@ -9,14 +9,15 @@ public class GameManager : MonoBehaviour
 
     //----[Menu de Opciones]--------<
     [Header("SettingsOpciones")]
-    bool pantalaCompleta=false;
-    bool vibracionDePantalla=false;
+    
+    public bool pantalaCompleta=false;
+    public bool vibracionDePantalla =false;
     [Range(0, 1)]
-    float volumenGeneral=0;
+    public float volumenGeneral =0;
     [Range(0, 1)]
-    float musica=0;
+    public float musica =0;
     [Range(0, 1)]
-    float efectos=0;
+    public float efectos =0;
 
     
 
