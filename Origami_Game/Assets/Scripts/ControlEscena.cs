@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ControlEscena : MonoBehaviour
 {
+    int _siguienteNivel;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _siguienteNivel = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -21,7 +22,9 @@ public class ControlEscena : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("NivelActual", _siguienteNivel);
+
+            SceneManager.LoadScene(_siguienteNivel);
         }
     }
 }
