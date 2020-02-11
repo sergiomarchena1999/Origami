@@ -5246,7 +5246,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 234600a5a34b1234d99c9dae784975ab, type: 2}
+  - {fileID: 2100000, guid: 6c366915331b622499e77ad4e25c4c44, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -6241,7 +6241,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.1891861
+          value: 0.32431835
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6731,11 +6731,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     speedRange: {x: 0, y: 1}
-    tilesX: 6
+    tilesX: 7
     tilesY: 2
     animationType: 0
     rowIndex: 0
-    cycles: 5
+    cycles: 8
     uvChannelMask: -1
     rowMode: 1
     sprites:
