@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pagina
-  - Muerte
+  - No Destuir on Load
   layers:
   - Default
   - TransparentFX
@@ -15,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - Suelo
-  - Caja
+  - PostProcesing
+  - 
   - 
   - 
   - 
