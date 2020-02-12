@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     //##########---[ Variablees ]---##########################################<
-    
+
+    #region Variablees
     //----[Menu de Opciones]--------<
     [Header("Actual Options Data")]
     
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     [Range(0, 5)]
     public float paginas = 0;
 
-    // info Checpoint//-------:
+    // info Checpoint//
     [Range(0, 5)]
     public int lastCheckpoint = 0;
     //
@@ -70,12 +71,12 @@ public class GameManager : MonoBehaviour
     public float resetLastCheckpointX;
     public float resetLastCheckpointY;
     public float resetLastCheckpointZ;
-
+    #endregion
 
 
 
     //##########---[ Start - Update - Awake ]---##############################<
-
+    #region Start - Update - Awake
     void Awake()
     {
         KeepOnLoadStart();
@@ -88,32 +89,52 @@ public class GameManager : MonoBehaviour
             
         }
     }
+    #endregion
+
 
 
     //##########---[ Metodos ]---#############################################<
 
+    #region Metodos
     void RestartPlayerSettings()
     {
-        PlayerPrefs.SetFloat("posicionx", transform.position.x);
-        PlayerPrefs.SetFloat("posiciony", transform.position.y);
-        PlayerPrefs.SetFloat("posicionz", transform.position.z);
+        //Reset posicion checkpoint.
+        PlayerPrefs.SetFloat("posicionx", 0);
+        PlayerPrefs.SetFloat("posiciony", 0);
+        PlayerPrefs.SetFloat("posicionz", 0);
+        //Reset paginas a 0.
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey("pag" + i))
+            {
+                PlayerPrefs.SetFloat("posicionz" + i, 0);
+            }
+        }
+        //Reset Checkpoint a 0.
+        PlayerPrefs.SetInt("NivelActual", 0);
+
+        PlayerPrefs.Save();
     }
+    #endregion
 
 
 
     //##########---[ Canvas ]---##############################################<
 
+    #region Canvas
     void StartLoadPlayerPrefs()
     {
         volumenGeneral = PlayerPrefs.GetFloat("OpcioneVolumenGeneral", 0);
         musica = PlayerPrefs.GetFloat("OpcionesMusica", 0);
         efectos = PlayerPrefs.GetFloat("OpcioneEfectos", 0);
     }
+    #endregion
 
 
 
     //##########---[ Unity ]---###############################################<
-    
+
+    #region Unity
     // Mantine los objetos con tag "No Destuir on Load" al cargar escenas al inicio.
     void KeepOnLoadStart()
     {
@@ -129,4 +150,6 @@ public class GameManager : MonoBehaviour
         //Indicar abajao el numero de la escena que se carga al iniciar el juego en el menu de builds setings (Por defecto "Menu principal")
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
+    #endregion
+
 }
