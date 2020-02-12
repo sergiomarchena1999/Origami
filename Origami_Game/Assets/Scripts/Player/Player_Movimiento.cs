@@ -118,11 +118,15 @@ public class Player_Movimiento : MonoBehaviour
         //Detectar input dash.
         if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash)
         {
-            _timerDash = Time.time;
-            _cargandoDash = true;
-            _anim.SetTrigger("Dash");
+            if (Input.GetAxis("Vertical") > .1 && _inputX > .1)
+            {
+                transform.Rotate(0, 0, 45);
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
 
-            _rb.velocity = (transform.right * velocidadDash);
+                _rb.velocity = (transform.right * velocidadDash);
+            }            
         }
 
         //Timer Dash.
