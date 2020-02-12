@@ -45,15 +45,15 @@ public class Caja_Movimiento : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
+        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.tag == "Player")
         {
-            _rb.mass = 100;
+            _rb.mass = 200;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
+        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.tag == "Player")
         {
             _rb.mass = pesoCaja;
         }
