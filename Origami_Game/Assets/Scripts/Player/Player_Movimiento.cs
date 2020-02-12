@@ -34,8 +34,10 @@ public class Player_Movimiento : MonoBehaviour
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
+    string _orientacion = null;
+    bool _dashDisponible = false;
     bool _cargandoDash = false;
-    bool _miraDerecha = true;
+    bool _miraDerecha = true;    
 
     //Fuerza del salto del personaje.
     float fuerzaSalto;
@@ -96,7 +98,10 @@ public class Player_Movimiento : MonoBehaviour
         _inputX = Input.GetAxisRaw("Horizontal");
 
         if (rayIzq.collider != null || rayDer.collider != null)
+        {
             _enSuelo = true;
+            _dashDisponible = true;
+        }            
         else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
     
@@ -112,17 +117,54 @@ public class Player_Movimiento : MonoBehaviour
 
         _velocidadY = _rb.velocity.y;
     }
-
+    
     void GestionDash()
     {
         //Detectar input dash.
-        if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash)
-        {
-            _timerDash = Time.time;
-            _cargandoDash = true;
-            _anim.SetTrigger("Dash");
+        if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash && _dashDisponible)
+        {            
+            if (Input.GetAxis("Vertical") > .1 && _inputX > .1)
+            {
+                transform.Rotate(0, 0, 45);
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _orientacion = "Derecha";
+                _dashDisponible = false;
 
-            _rb.velocity = (transform.right * velocidadDash);
+                _rb.velocity = (transform.right * velocidadDash);
+            }
+            else if (Input.GetAxis("Vertical") > .1 && _inputX < -.1)
+            {
+                transform.Rotate(0, 0, 45);
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _orientacion = "Izquierda";
+                _dashDisponible = false;
+
+                _rb.velocity = (transform.right * velocidadDash);
+            }
+            else if (Input.GetAxis("Vertical") < .1 && _inputX > .1)
+            {
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _orientacion = "Derecha";
+                _dashDisponible = false;
+
+                _rb.velocity = (transform.right * velocidadDash);
+            }
+            else if (Input.GetAxis("Vertical") < .1 && _inputX < -.1)
+            {
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _orientacion = "Izquierda";
+                _dashDisponible = false;
+
+                _rb.velocity = (transform.right * velocidadDash);
+            }
         }
 
         //Timer Dash.
@@ -130,6 +172,11 @@ public class Player_Movimiento : MonoBehaviour
         {
             Debug.Log("Ya puedes usar el dash.");
             _cargandoDash = false;
+
+            if (_orientacion == "Derecha")
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 1f);
+            else if (_orientacion == "Izquierda")
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), 1f);
         }
 
         if (_cargandoDash)
@@ -165,7 +212,7 @@ public class Player_Movimiento : MonoBehaviour
                 Debug.Log("Empujando");
                 _conCaja = true;
                 _caja = ray.transform.gameObject.GetComponent<Caja_Movimiento>();
-
+                
                 _caja.EmpujarCaja();
             }
 
@@ -186,6 +233,9 @@ public class Player_Movimiento : MonoBehaviour
             _velocidadPlayer = velocidadEmpujando;
         else
             _velocidadPlayer = velocidadEnSuelo;
+
+
+        _anim.SetBool("Empujando", _conCaja);
     }
 
     //Función que se encarga de mandarle información al Animator.
