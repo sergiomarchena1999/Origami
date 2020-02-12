@@ -120,75 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &468689779
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.4611034
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.060152
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170630853018233118, guid: 0de0ec675de01f24080627e72168508e,
-        type: 3}
-      propertyPath: m_Name
-      value: Paper Boy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0de0ec675de01f24080627e72168508e, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +173,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 13.9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -266,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.31, z: -10}
+  m_LocalPosition: {x: 2.87, y: 2.59, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -282,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 4646834783572628878, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0526633
+      value: 9.56
       objectReference: {fileID: 0}
     - target: {fileID: 4646834783572628878, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
         type: 3}
@@ -352,7 +283,7 @@ GameObject:
   - component: {fileID: 1586056409}
   - component: {fileID: 1586056408}
   - component: {fileID: 1586056407}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Suelo (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,12 +373,81 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586056406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.89, y: -0.42, z: -3.3678672}
-  m_LocalScale: {x: 86.751595, y: 6.5791, z: 6.5791}
+  m_LocalPosition: {x: 17.68, y: -1.1, z: -3.3678672}
+  m_LocalScale: {x: 189.7, y: 6.5791, z: 6.5791}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1721007549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292161748145296481, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_Name
+      value: Paper Boy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74447935928fd4440939f055315aa753, type: 3}
 --- !u!1 &1878717112
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 1878717115}
   - component: {fileID: 1878717114}
   - component: {fileID: 1878717113}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,8 +549,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878717112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.02, y: 1.85, z: -3.3678672}
-  m_LocalScale: {x: 86.751595, y: 6.5791, z: 6.5791}
+  m_LocalPosition: {x: -15.46, y: -7.22, z: -3.3678672}
+  m_LocalScale: {x: 148.4, y: 6.5791, z: 6.5791}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
