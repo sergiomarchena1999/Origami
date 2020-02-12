@@ -115,6 +115,11 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.Save();
     }
+
+    void StartingLoad()
+    {
+
+    }
     #endregion
 
 
