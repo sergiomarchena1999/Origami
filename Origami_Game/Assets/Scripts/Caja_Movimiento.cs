@@ -33,8 +33,8 @@ public class Caja_Movimiento : MonoBehaviour
         if (rayIzq.collider != null || rayDer.collider != null)
         {
             Debug.Log("Me empujan.");
-            _rb.velocity = player.GetComponent<Rigidbody2D>().velocity * 0.85f;
-        }       
+            _rb.velocity = player.GetComponent<Rigidbody2D>().velocity * .5f;           
+        }
     }
 
     //Función llamada por Player_Movimiento cuanco el jugador deja la caja.

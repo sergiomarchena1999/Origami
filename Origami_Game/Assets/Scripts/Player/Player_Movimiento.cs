@@ -165,7 +165,7 @@ public class Player_Movimiento : MonoBehaviour
                 Debug.Log("Empujando");
                 _conCaja = true;
                 _caja = ray.transform.gameObject.GetComponent<Caja_Movimiento>();
-
+                
                 _caja.EmpujarCaja();
             }
 
@@ -186,6 +186,9 @@ public class Player_Movimiento : MonoBehaviour
             _velocidadPlayer = velocidadEmpujando;
         else
             _velocidadPlayer = velocidadEnSuelo;
+
+
+        _anim.SetBool("Empujando", _conCaja);
     }
 
     //Función que se encarga de mandarle información al Animator.
