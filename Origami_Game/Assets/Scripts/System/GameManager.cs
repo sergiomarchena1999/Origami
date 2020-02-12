@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //##########---[Variablees]---############################################<
 
+    //##########---[ Variablees ]---##########################################<
+    
     //----[Menu de Opciones]--------<
-    [Header("SettingsOpciones")]
+    [Header("Actual Options Data")]
     
     public bool pantalaCompleta=false;
     public bool vibracionDePantalla =false;
@@ -19,15 +20,89 @@ public class GameManager : MonoBehaviour
     [Range(0, 1)]
     public float efectos =0;
 
+
+
+    //----[Player Settings]--------<
+    [Header("Actual Player Settings Data")]
+    [Range(0, 5)]
+    public float paginas = 0;
+
+    // info Checpoint//-------:
+    [Range(0, 5)]
+    public int lastCheckpoint = 0;
+    //
+    public float lastCheckpointX;
+    public float lastCheckpointY;
+    public float lastCheckpointZ;
+    //
+    // 0 = Biblioteca
+    // 1 = Sala del Diario
+    // 2 = Desague
+    // 3 = Calderas
+    // 4 = Naturaleza
+    // 5 = Mina encantadas
+    //
+    //---------------:
     
 
-    // Script para que no se destruya en una carga de escena.
+
+    //----[Reset Settings to Default]--------<
+
+    [Header("Reset Settings to Default Data")]
+    [Space(10)]
+    public bool deseaResetearPlayerPreferences = false;
+    [Space(20)]
+    public bool resetPantalaCompleta = false;
+    public bool resetVibracionDePantalla = false;
+    [Range(0, 1)]
+    public float resetvolumenGeneral = 0;
+    [Range(0, 1)]
+    public float resetMusica = 0;
+    [Range(0, 1)]
+    public float resetEfectos = 0;
+
+    [Range(0, 5)]
+    public float resetPaginas = 0;
+    
+    [Range(0, 5)]
+    public int resetLastCheckpoint = 0;
+    
+    public float resetLastCheckpointX;
+    public float resetLastCheckpointY;
+    public float resetLastCheckpointZ;
+
+
+
+
+    //##########---[ Start - Update - Awake ]---##############################<
+
     void Awake()
     {
         KeepOnLoadStart();
+        
+        if (PlayerPrefs.HasKey("posicionx"))
+        {
+            lastCheckpointX = PlayerPrefs.GetFloat("posicionx");
+            lastCheckpointY = PlayerPrefs.GetFloat("posiciony");
+            lastCheckpointZ = PlayerPrefs.GetFloat("posicionz");
+            
+        }
     }
 
-    
+
+    //##########---[ Metodos ]---#############################################<
+
+    void RestartPlayerSettings()
+    {
+        PlayerPrefs.SetFloat("posicionx", transform.position.x);
+        PlayerPrefs.SetFloat("posiciony", transform.position.y);
+        PlayerPrefs.SetFloat("posicionz", transform.position.z);
+    }
+
+
+
+    //##########---[ Canvas ]---##############################################<
+
     void StartLoadPlayerPrefs()
     {
         volumenGeneral = PlayerPrefs.GetFloat("OpcioneVolumenGeneral", 0);
@@ -36,6 +111,9 @@ public class GameManager : MonoBehaviour
     }
 
 
+
+    //##########---[ Unity ]---###############################################<
+    
     // Mantine los objetos con tag "No Destuir on Load" al cargar escenas al inicio.
     void KeepOnLoadStart()
     {
