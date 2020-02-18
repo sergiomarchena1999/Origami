@@ -43,11 +43,13 @@ public class Player_Nadar : MonoBehaviour
         if (collision.CompareTag("Agua"))
         {
             _instanciaMov.enabled = false;
+            _myAnim.Play("Trans_Pez");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         _instanciaMov.enabled = true;
         this.enabled = false;
+        _myAnim.Play("Trans_Player");
     }
 }

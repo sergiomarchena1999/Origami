@@ -66,6 +66,9 @@ public class Player_Movimiento : MonoBehaviour
     bool isMoving = false;
     float _velocidadY;
 
+    //Copia para acceder al script de nadar
+    Player_Nadar _instaciaNadar;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -76,6 +79,8 @@ public class Player_Movimiento : MonoBehaviour
         _rb.gravityScale = _newGravity;
         //Calculo de la fuerza del salto.
         fuerzaSalto = _rb.gravityScale * tiempoSalto;
+
+        _instaciaNadar = GetComponent<Player_Nadar>();
     }
     
     void Update()
@@ -264,5 +269,14 @@ public class Player_Movimiento : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + new Vector3(0, .1f, 0), transform.position + new Vector3(0, .1f, 0) + transform.right * distRayoCaja);
+    }
+
+    //Activa el script de nadar
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Agua"))
+        {
+            _instaciaNadar.enabled = true;
+        }
     }
 }

@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
         type: 3}
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadNado: 10
-  saltoAgua: 30
+  saltoAgua: 50
 --- !u!1 &1566399160
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +308,6 @@ GameObject:
   - component: {fileID: 1566399164}
   - component: {fileID: 1566399163}
   - component: {fileID: 1566399162}
-  - component: {fileID: 1566399161}
   m_Layer: 10
   m_Name: Suelo
   m_TagString: Agua
@@ -316,18 +315,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1566399161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566399160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737ed6b0f09eb664f887707523231d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1566399162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -411,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566399160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.1, y: -4.01, z: 10}
+  m_LocalPosition: {x: 13.1, y: -8.9, z: 10}
   m_LocalScale: {x: 149.67987, y: 38.135, z: 38.135}
   m_Children: []
   m_Father: {fileID: 0}
@@ -429,7 +416,6 @@ GameObject:
   - component: {fileID: 1770322802}
   - component: {fileID: 1770322801}
   - component: {fileID: 1770322800}
-  - component: {fileID: 1770322804}
   m_Layer: 0
   m_Name: Agua
   m_TagString: Agua
@@ -475,12 +461,12 @@ BuoyancyEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_SurfaceLevel: 0.08
+  m_SurfaceLevel: 0.04
   m_Density: 0.1
   m_LinearDrag: 5
   m_AngularDrag: 5
-  m_FlowAngle: 0
-  m_FlowMagnitude: 0
+  m_FlowAngle: 270
+  m_FlowMagnitude: 10
   m_FlowVariation: 0
 --- !u!212 &1770322802
 SpriteRenderer:
@@ -545,15 +531,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1770322804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1770322799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737ed6b0f09eb664f887707523231d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
