@@ -3,33 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Palanca : MonoBehaviour
-{
+{    
+    Animator _anim;    
     
-    Animator _anim;
-    bool palancaUsada = false;
-
-    // Start is called before the first frame update
     void Start()
     {
         _anim = GetComponent<Animator>();
     }
-    private void Update()
+
+    public void UsarPalanca()
     {
-        if (Input.GetKeyDown(KeyCode.E) && palancaUsada)
-        {
-            Debug.Log("3");
-            _anim.SetTrigger("Activar");
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("1");
-        if (collision.transform.tag == "Player")
-        {
-          palancaUsada = true;
-         
-        }
+        _anim.SetTrigger("Activar");
     }
 }
-
-

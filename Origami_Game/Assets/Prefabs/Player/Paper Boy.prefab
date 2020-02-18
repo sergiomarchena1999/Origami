@@ -305,8 +305,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.326616, y: 2.4168754}
-  m_EdgeRadius: 0
+  m_Size: {x: 1.16, y: 2.27}
+  m_EdgeRadius: 0.1
 --- !u!50 &8983985511966466316
 Rigidbody2D:
   serializedVersion: 4
@@ -484,6 +484,7 @@ MonoBehaviour:
   distRayoPies: 0.2
   _conCaja: 0
   _enSuelo: 0
+  _miraDerecha: 1
   _timerDash: 0
   capaSuelo:
     serializedVersion: 2
@@ -491,6 +492,9 @@ MonoBehaviour:
   capaCaja:
     serializedVersion: 2
     m_Bits: 512
+  capaPalanca:
+    serializedVersion: 2
+    m_Bits: 4096
   raycastIzq: {fileID: 2535746634438562341}
   raycastDer: {fileID: 3257193851621169547}
 --- !u!114 &2124033084912138436

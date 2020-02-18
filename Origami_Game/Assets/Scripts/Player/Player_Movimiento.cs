@@ -35,8 +35,10 @@ public class Player_Movimiento : MonoBehaviour
     [HideInInspector]
     public bool _enSuelo = false;
     bool _dashDisponible = false;
-    bool _cargandoDash = false;
-    bool _miraDerecha = true;    
+    bool _usandoPalanca = false;
+    bool _cargandoDash = false;    
+    [HideInInspector]
+    public bool _miraDerecha = true;    
 
     //Fuerza del salto del personaje.
     float fuerzaSalto;
@@ -54,6 +56,8 @@ public class Player_Movimiento : MonoBehaviour
     public LayerMask capaSuelo;
     [Tooltip("Seleccionar la layer Caja.")]
     public LayerMask capaCaja;
+    [Tooltip("Seleccionar la layer Palanca.")]
+    public LayerMask capaPalanca;
 
     [Space]
     [Tooltip("Posicion del raycast de la izquierda.")]
@@ -84,9 +88,11 @@ public class Player_Movimiento : MonoBehaviour
     
     void Update()
     {
+        if()
         GestionMovimiento();
         GestionCaja();
         GestionDash();
+        GestionPalanca();
         GestionAnimacion();
 
         if(!_conCaja || _cargandoDash)
@@ -236,6 +242,21 @@ public class Player_Movimiento : MonoBehaviour
 
 
         _anim.SetBool("Empujando", _conCaja);
+    }
+
+    void GestionPalanca()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+
+        if (ray.collider != null)
+        {
+            if (Input.GetButton("Usar") && _enSuelo)
+            {
+                Debug.Log("Palanqueando");
+                _usandoPalanca = true;
+                ray.collider.GetComponent<Palanca>().UsarPalanca();
+            }
+        }
     }
 
     //Función que se encarga de mandarle información al Animator.
