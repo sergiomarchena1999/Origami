@@ -34,7 +34,6 @@ public class Player_Movimiento : MonoBehaviour
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
-    string _orientacion = null;
     bool _dashDisponible = false;
     bool _cargandoDash = false;
     bool _miraDerecha = true;    
@@ -86,7 +85,7 @@ public class Player_Movimiento : MonoBehaviour
         GestionAnimacion();
 
         if(!_conCaja || _cargandoDash)
-            GestionOrientacion();        
+            GestionOrientacion();    
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
@@ -105,13 +104,14 @@ public class Player_Movimiento : MonoBehaviour
         else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
     
+        //Convertir el input en eje x en movimiento
         if(!_cargandoDash)
             _rb.velocity = new Vector2((_inputX * _velocidadPlayer), _rb.velocity.y);
 
         //Detectar input salto.
-        if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja)
+        if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja && !_cargandoDash)
         {
-            _rb.velocity = (Vector2.up * fuerzaSalto);
+            _rb.velocity = (transform.up * fuerzaSalto);
             _anim.SetTrigger("Jump");
         }
 
@@ -122,14 +122,13 @@ public class Player_Movimiento : MonoBehaviour
     {
         //Detectar input dash.
         if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash && _dashDisponible)
-        {            
+        {
             if (Input.GetAxis("Vertical") > .1 && _inputX > .1)
             {
                 transform.Rotate(0, 0, 45);
                 _timerDash = Time.time;
                 _cargandoDash = true;
                 _anim.SetTrigger("Dash");
-                _orientacion = "Derecha";
                 _dashDisponible = false;
 
                 _rb.velocity = (transform.right * velocidadDash);
@@ -140,7 +139,6 @@ public class Player_Movimiento : MonoBehaviour
                 _timerDash = Time.time;
                 _cargandoDash = true;
                 _anim.SetTrigger("Dash");
-                _orientacion = "Izquierda";
                 _dashDisponible = false;
 
                 _rb.velocity = (transform.right * velocidadDash);
@@ -150,7 +148,6 @@ public class Player_Movimiento : MonoBehaviour
                 _timerDash = Time.time;
                 _cargandoDash = true;
                 _anim.SetTrigger("Dash");
-                _orientacion = "Derecha";
                 _dashDisponible = false;
 
                 _rb.velocity = (transform.right * velocidadDash);
@@ -160,7 +157,6 @@ public class Player_Movimiento : MonoBehaviour
                 _timerDash = Time.time;
                 _cargandoDash = true;
                 _anim.SetTrigger("Dash");
-                _orientacion = "Izquierda";
                 _dashDisponible = false;
 
                 _rb.velocity = (transform.right * velocidadDash);
@@ -170,13 +166,12 @@ public class Player_Movimiento : MonoBehaviour
         //Timer Dash.
         if (Time.time > _timerDash + tiempoDash && _cargandoDash)
         {
-            Debug.Log("Ya puedes usar el dash.");
             _cargandoDash = false;
 
-            if (_orientacion == "Derecha")
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 1f);
-            else if (_orientacion == "Izquierda")
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 180, 0), 1f);
+            if (_miraDerecha)
+                transform.rotation = Quaternion.identity;
+            else
+                transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
         if (_cargandoDash)
@@ -191,16 +186,12 @@ public class Player_Movimiento : MonoBehaviour
         if (_inputX > 0.01 && _miraDerecha == false)
         {
             _miraDerecha = true;
-
-            if (transform.rotation != Quaternion.Euler(0, 0, 0))
-                transform.Rotate(0, 180, 0);
+            transform.rotation = Quaternion.identity;            
         }
         else if (_inputX < -0.01 && _miraDerecha == true)
         {
             _miraDerecha = false;
-
-            if (transform.rotation != Quaternion.Euler(0, 180, 0))
-                transform.Rotate(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         } 
     }
 
