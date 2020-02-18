@@ -191,12 +191,16 @@ public class Player_Movimiento : MonoBehaviour
         if (_inputX > 0.01 && _miraDerecha == false)
         {
             _miraDerecha = true;
-            transform.Rotate(0, 180, 0);
+
+            if (transform.rotation != Quaternion.Euler(0, 0, 0))
+                transform.Rotate(0, 180, 0);
         }
         else if (_inputX < -0.01 && _miraDerecha == true)
         {
             _miraDerecha = false;
-            transform.Rotate(0, 180, 0);
+
+            if (transform.rotation != Quaternion.Euler(0, 180, 0))
+                transform.Rotate(0, 180, 0);
         } 
     }
 
