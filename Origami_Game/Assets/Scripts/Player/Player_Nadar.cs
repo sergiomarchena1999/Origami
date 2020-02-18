@@ -8,7 +8,6 @@ public class Player_Nadar : MonoBehaviour
     Rigidbody2D _rb;
     GameObject _go;
     Player_Movimiento _instanciaMov;
-    Player_Nadar;
     float _inputX;
 
     public float velocidadNado = 5;
@@ -16,7 +15,6 @@ public class Player_Nadar : MonoBehaviour
 
     bool _enAgua;
 
-    // Start is called before the first frame update
     void Start()
     {
         _myAnim = GetComponent<Animator>();
@@ -24,7 +22,6 @@ public class Player_Nadar : MonoBehaviour
         _instanciaMov = GetComponent<Player_Movimiento>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GestionNado();
@@ -47,5 +44,10 @@ public class Player_Nadar : MonoBehaviour
         {
             _instanciaMov.enabled = false;
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _instanciaMov.enabled = true;
+        this.enabled = false;
     }
 }
