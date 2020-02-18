@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     public bool resetPantalaCompleta = false;
     public bool resetVibracionDePantalla = false;
     [Range(0, 1)]
-    public float resetvolumenGeneral = 0;
+    public float resetVolumenGeneral = 0;
     [Range(0, 1)]
     public float resetMusica = 0;
     [Range(0, 1)]
@@ -89,6 +89,10 @@ public class GameManager : MonoBehaviour
             
         }
     }
+    private void Start()
+    {
+        deletePlayerPref();
+    }
     #endregion
 
 
@@ -98,28 +102,104 @@ public class GameManager : MonoBehaviour
     #region Metodos
     void RestartPlayerSettings()
     {
-        //Reset posicion checkpoint.
-        PlayerPrefs.SetFloat("posicionx", 0);
-        PlayerPrefs.SetFloat("posiciony", 0);
-        PlayerPrefs.SetFloat("posicionz", 0);
-        //Reset paginas a 0.
+        //Reset posicion checkpoint a valores dados en el inspector.
+        PlayerPrefs.SetFloat("posicionx", resetLastCheckpointX);
+        PlayerPrefs.SetFloat("posiciony", resetLastCheckpointY);
+        PlayerPrefs.SetFloat("posicionz", resetLastCheckpointZ);
+        //Reset paginas a valores dados en el inspector.
         for (int i = 0; i < 5; i++)
         {
             if (PlayerPrefs.HasKey("pag" + i))
             {
-                PlayerPrefs.SetFloat("posicionz" + i, 0);
+                PlayerPrefs.SetFloat("posicionz" + i, resetPaginas);
             }
         }
-        //Reset Checkpoint a 0.
-        PlayerPrefs.SetInt("NivelActual", 0);
+        //Reset Checkpoint a valores dados en el inspector.
+        PlayerPrefs.SetInt("NivelActual", resetLastCheckpoint);
+        //Reset Opciones a valores dados en el inspector.
+        PlayerPrefs.SetFloat("VolumenGeneral", resetVolumenGeneral);
+        PlayerPrefs.SetFloat("VolumenMusica", resetMusica);
+        PlayerPrefs.SetFloat("VolumenEfectos", resetLastCheckpoint);
+
+        //reset Pantalla y Vabracion.
+        if (pantalaCompleta)
+        {
+            PlayerPrefs.SetInt("PantallaCompleta", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("PantallaCompleta", 0);
+        }
+        if (resetVibracionDePantalla)
+        {
+            PlayerPrefs.SetInt("VibracionDePantalla", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("VibracionDePantalla", 0);
+        }
+
+
 
         PlayerPrefs.Save();
     }
 
     void StartingLoad()
     {
+        //Opciones del menu.
+        if (PlayerPrefs.GetFloat(CheckPref("PantallaCompleta", "Float"))==0)
+        {
+            pantalaCompleta = false;
+        }
+        else
+        {
+            pantalaCompleta = true;
+        }
 
+        if (PlayerPrefs.GetFloat(CheckPref("VibracionDePantalla", "Float")) == 0)
+        {
+            vibracionDePantalla = false;
+        }
+        else
+        {
+            vibracionDePantalla = true;
+        }
+        volumenGeneral = PlayerPrefs.GetFloat(CheckPref("VolumenGeneral", "Float"));
+        musica = PlayerPrefs.GetFloat(CheckPref("VolumenMusica", "Float"));
+        efectos = PlayerPrefs.GetFloat(CheckPref("VolumenEfectos", "Float"));
+
+        //Checkpoint.
+        lastCheckpoint = PlayerPrefs.GetInt(CheckPref("NivelActual", "Int"));
+        lastCheckpointX = PlayerPrefs.GetFloat(CheckPref("posicionx", "Float"));
+        lastCheckpointY = PlayerPrefs.GetFloat(CheckPref("posiciony", "Float"));
+        lastCheckpointZ = PlayerPrefs.GetFloat(CheckPref("posicionz", "Float"));
+
+        //Paginas
+        paginas = PlayerPrefs.GetFloat(CheckPref("posicionz", "Float"));
     }
+
+    string CheckPref(string PrefName, string KindOfValueFloatOrInt)
+    {
+        if (!PlayerPrefs.HasKey(PrefName))
+        {
+            if (KindOfValueFloatOrInt == "Int" | KindOfValueFloatOrInt == "int")
+            {
+                PlayerPrefs.SetInt(PrefName, 0);
+            }
+
+            if (KindOfValueFloatOrInt == "Float" | KindOfValueFloatOrInt == "float")
+            {
+                PlayerPrefs.SetFloat(PrefName, 0);
+            }
+        }
+        return PrefName;
+    }
+
+    void deletePlayerPref()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     #endregion
 
 

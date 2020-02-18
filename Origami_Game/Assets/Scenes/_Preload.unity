@@ -173,3 +173,14 @@ MonoBehaviour:
   lastCheckpointX: 0
   lastCheckpointY: 0
   lastCheckpointZ: 0
+  deseaResetearPlayerPreferences: 1
+  resetPantalaCompleta: 1
+  resetVibracionDePantalla: 1
+  resetVolumenGeneral: 0
+  resetMusica: 0
+  resetEfectos: 0
+  resetPaginas: 0
+  resetLastCheckpoint: 0
+  resetLastCheckpointX: 0
+  resetLastCheckpointY: 0
+  resetLastCheckpointZ: 0
