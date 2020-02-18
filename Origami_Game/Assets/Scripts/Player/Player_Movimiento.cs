@@ -66,7 +66,9 @@ public class Player_Movimiento : MonoBehaviour
     public Transform raycastDer;
 
     //Variables Animator
-    bool isMoving = false;
+    bool _isMoving = false;
+    bool _empujando = false;
+    bool _tirando = false;
     float _velocidadY;
 
     //Copia para acceder al script de nadar
@@ -88,7 +90,6 @@ public class Player_Movimiento : MonoBehaviour
     
     void Update()
     {
-        if()
         GestionMovimiento();
         GestionCaja();
         GestionDash();
@@ -240,8 +241,35 @@ public class Player_Movimiento : MonoBehaviour
         else
             _velocidadPlayer = velocidadEnSuelo;
 
+        if (_conCaja && _miraDerecha && _inputX > 0.1)
+        {
+            _empujando = true;
+            _tirando = false;
+        }
+        else if (_conCaja && !_miraDerecha && _inputX < -0.1)
+        {
+            _empujando = true;
+            _tirando = false;
+            _anim.speed = 0;
+        }
+        else if (_conCaja && !_miraDerecha && _inputX > 0.1)
+        {
+            _empujando = false;
+            _tirando = true;
+        }
+        else if (_conCaja && _miraDerecha && _inputX < -0.1)
+        {
+            _empujando = false;
+            _tirando = true;
+            
+        }
+        else if (!_conCaja && _inputX == 0)
+        {
+            _empujando = false;
+            _tirando = false;
+            
 
-        _anim.SetBool("Empujando", _conCaja);
+        } 
     }
 
     void GestionPalanca()
@@ -263,11 +291,14 @@ public class Player_Movimiento : MonoBehaviour
     void GestionAnimacion()
     {
         if (_inputX != 0)
-            isMoving = true;
+            _isMoving = true;
         else
-            isMoving = false;
+            _isMoving = false;
 
-        _anim.SetBool("Running", isMoving);
+        _anim.SetBool("Tirando", _tirando);
+        _anim.SetBool("Empujando", _empujando);
+
+        _anim.SetBool("Running", _isMoving);
         _anim.SetBool("Grounded", _enSuelo);
         _anim.SetFloat("VelocidadY", _velocidadY);
     }
