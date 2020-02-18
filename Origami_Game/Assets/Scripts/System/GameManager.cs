@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     //----[Menu de Opciones]--------<
     [Header("Actual Options Data")]
     
-    public bool pantalaCompleta=false;
+    public bool pantallaCompleta=false;
     public bool vibracionDePantalla =false;
     [Range(0, 1)]
     public float volumenGeneral =0;
@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     //----[Player Settings]--------<
     [Header("Actual Player Settings Data")]
-    [Range(0, 5)]
-    public float paginas = 0;
+    
+    public int[] paginas = { 0, 0, 0, 0, 0 };
 
     // info Checpoint//
     [Range(0, 5)]
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     [Space(10)]
     public bool deseaResetearPlayerPreferences = false;
     [Space(20)]
-    public bool resetPantalaCompleta = false;
+    public bool resetPantallaCompleta = false;
     public bool resetVibracionDePantalla = false;
     [Range(0, 1)]
     public float resetVolumenGeneral = 0;
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("pag" + i))
             {
-                PlayerPrefs.SetFloat("posicionz" + i, resetPaginas);
+                PlayerPrefs.SetFloat("pag" + i, resetPaginas);
             }
         }
         //Reset Checkpoint a valores dados en el inspector.
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("VolumenEfectos", resetLastCheckpoint);
 
         //reset Pantalla y Vabracion.
-        if (pantalaCompleta)
+        if (pantallaCompleta)
         {
             PlayerPrefs.SetInt("PantallaCompleta", 1);
         }
@@ -149,11 +149,11 @@ public class GameManager : MonoBehaviour
         //Opciones del menu.
         if (PlayerPrefs.GetFloat(CheckPref("PantallaCompleta", "Float"))==0)
         {
-            pantalaCompleta = false;
+            pantallaCompleta = false;
         }
         else
         {
-            pantalaCompleta = true;
+            pantallaCompleta = true;
         }
 
         if (PlayerPrefs.GetFloat(CheckPref("VibracionDePantalla", "Float")) == 0)
@@ -175,7 +175,11 @@ public class GameManager : MonoBehaviour
         lastCheckpointZ = PlayerPrefs.GetFloat(CheckPref("posicionz", "Float"));
 
         //Paginas
-        paginas = PlayerPrefs.GetFloat(CheckPref("posicionz", "Float"));
+        for (int i = 0; i < 5; i++)
+        {
+                paginas[i] = PlayerPrefs.GetInt(CheckPref("pag"+i, "Int"));
+            
+        }
     }
 
     string CheckPref(string PrefName, string KindOfValueFloatOrInt)
@@ -185,11 +189,13 @@ public class GameManager : MonoBehaviour
             if (KindOfValueFloatOrInt == "Int" | KindOfValueFloatOrInt == "int")
             {
                 PlayerPrefs.SetInt(PrefName, 0);
+                return PrefName;
             }
 
             if (KindOfValueFloatOrInt == "Float" | KindOfValueFloatOrInt == "float")
             {
                 PlayerPrefs.SetFloat(PrefName, 0);
+                return PrefName;
             }
         }
         return PrefName;
@@ -198,6 +204,57 @@ public class GameManager : MonoBehaviour
     void deletePlayerPref()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public void SaveData(string variableAGuardar, string valorAGuardar)
+    {
+        switch (variableAGuardar)
+        {
+            case "pantallaCompleta":
+                pantallaCompleta= bool.Parse(valorAGuardar);
+                break;
+            case "vibracionDePantalla":
+                vibracionDePantalla= bool.Parse(valorAGuardar);
+                break;
+            case "volumenGeneral":
+                volumenGeneral= float.Parse(valorAGuardar);
+                break;
+            case "musica":
+                musica= float.Parse(valorAGuardar);
+                break;
+            case "efectos":
+                efectos= float.Parse(valorAGuardar);
+                break;
+            case "pag1":
+                paginas[0]= int.Parse(valorAGuardar);
+                break;
+            case "pag2":
+                paginas[1] = int.Parse(valorAGuardar);
+                break;
+            case "pag3":
+                paginas[2] = int.Parse(valorAGuardar);
+                break;
+            case "pag4":
+                paginas[3] = int.Parse(valorAGuardar);
+                break;
+            case "pag5":
+                paginas[4] = int.Parse(valorAGuardar);
+                break;
+
+            case "lastCheckpoint":
+                lastCheckpoint= int.Parse(valorAGuardar);
+                break;
+            case "lastCheckpointX":
+                lastCheckpointX= float.Parse(valorAGuardar);
+                break;
+            case "lastCheckpointY":
+                lastCheckpointY= float.Parse(valorAGuardar);
+                break;
+            case "lastCheckpointZ":
+                lastCheckpointZ= float.Parse(valorAGuardar);
+                break;
+
+        }
     }
 
     #endregion
