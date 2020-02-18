@@ -90,7 +90,7 @@ public class Player_Movimiento : MonoBehaviour
         GestionAnimacion();
 
         if(!_conCaja || _cargandoDash)
-            GestionOrientacion();    
+            GestionOrientacion();
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
@@ -128,7 +128,7 @@ public class Player_Movimiento : MonoBehaviour
         //Detectar input dash.
         if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash && _dashDisponible)
         {
-            if (Input.GetAxis("Vertical") > .1 && _inputX > .1)
+            if (Input.GetAxisRaw("Vertical") > .1 && _inputX > .1)
             {
                 transform.Rotate(0, 0, 45);
                 _timerDash = Time.time;
@@ -138,7 +138,7 @@ public class Player_Movimiento : MonoBehaviour
 
                 _rb.velocity = (transform.right * velocidadDash);
             }
-            else if (Input.GetAxis("Vertical") > .1 && _inputX < -.1)
+            else if (Input.GetAxisRaw("Vertical") > .1 && _inputX < -.1)
             {
                 transform.Rotate(0, 0, 45);
                 _timerDash = Time.time;
@@ -148,7 +148,7 @@ public class Player_Movimiento : MonoBehaviour
 
                 _rb.velocity = (transform.right * velocidadDash);
             }
-            else if (Input.GetAxis("Vertical") < .1 && _inputX > .1)
+            else if (Input.GetAxisRaw("Vertical") < .1 && _inputX > .1)
             {
                 _timerDash = Time.time;
                 _cargandoDash = true;
@@ -157,7 +157,7 @@ public class Player_Movimiento : MonoBehaviour
 
                 _rb.velocity = (transform.right * velocidadDash);
             }
-            else if (Input.GetAxis("Vertical") < .1 && _inputX < -.1)
+            else if (Input.GetAxisRaw("Vertical") < .1 && _inputX < -.1)
             {
                 _timerDash = Time.time;
                 _cargandoDash = true;
