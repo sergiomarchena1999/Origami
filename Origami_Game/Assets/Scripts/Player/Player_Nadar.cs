@@ -16,7 +16,8 @@ public class Player_Nadar : MonoBehaviour
     [Tooltip("Asigna la capacidad de salto de paper boy en el agua")]
     public float saltoAgua = 2;
 
-    bool _enAgua;
+    [HideInInspector]
+    public bool _enAgua = false;
 
     void Start()
     {

@@ -6,13 +6,17 @@ public class Player_Audio : MonoBehaviour
 {
     AudioSource _as;
     AudioSource _asAire;
+    AudioSource _asNadar;
     Player_Movimiento _pm;
+    Player_Nadar _pn;
     
     public AudioClip sonidoIdle;
     public AudioClip sonidoPaso;
     public AudioClip sonidoDash;    
     public AudioClip sonidoSalto;
     public AudioClip sonidoAterrizaje;
+    public AudioClip sonidoZambullirse;
+    public AudioClip sonidoSalirAgua;
 
     void Start()
     {
