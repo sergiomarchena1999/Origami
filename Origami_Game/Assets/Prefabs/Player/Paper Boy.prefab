@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1011141809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011141810}
+  - component: {fileID: 1011141811}
+  m_Layer: 0
+  m_Name: AudioNadar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1011141810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011141809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3756420077469743023}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1011141811
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011141809}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7282257700864032761, guid: 9d5000f54c4a8f1468d67c2ad099a17b,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 74edb4f2998accd44ab0397dc0ebd889, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1193629727050893284
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7282257700864032761, guid: 9d5000f54c4a8f1468d67c2ad099a17b,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ee787eb4cfac46442b24778b34cdcf79, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -207,6 +335,7 @@ GameObject:
   - component: {fileID: 6874237781947137294}
   - component: {fileID: 2372733006056827586}
   - component: {fileID: 2124033084912138436}
+  - component: {fileID: 944144474}
   m_Layer: 0
   m_Name: Paper Boy
   m_TagString: Player
@@ -229,6 +358,7 @@ Transform:
   - {fileID: 3257193851621169547}
   - {fileID: 1623096534539862038}
   - {fileID: 1193629727050893283}
+  - {fileID: 1011141810}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -461,6 +591,8 @@ MonoBehaviour:
   sonidoDash: {fileID: 8300000, guid: 0a83ef4c3548cda4299724d26eb56f2e, type: 3}
   sonidoSalto: {fileID: 8300000, guid: ac6aed2d0c92d5f449a9c64e45569f0f, type: 3}
   sonidoAterrizaje: {fileID: 8300000, guid: 222e2f12b1ec84042b5c94460f550676, type: 3}
+  sonidoZambullirse: {fileID: 8300000, guid: 36404026b1ad52f49af2ff1c592ff518, type: 3}
+  sonidoSalirAgua: {fileID: 8300000, guid: 57d317a783b2fe14c86bd6625d4232c7, type: 3}
 --- !u!114 &2372733006056827586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +641,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc9ec4bc3b3e894a89a94f38b1d1915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &944144474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8292161748145296481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9fc0d021c5326469c57e6a9ec18102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadNado: 10
+  saltoAgua: 50
+  _enAgua: 0
 --- !u!1 &8603305512808314786
 GameObject:
   m_ObjectHideFlags: 0
