@@ -163,24 +163,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6def7531f73ee428b92a50154e5806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pantalaCompleta: 0
+  pantallaCompleta: 0
   vibracionDePantalla: 0
   volumenGeneral: 0
   musica: 0
   efectos: 0
-  paginas: 0
+  paginas: 0000000000000000000000000000000000000000
   lastCheckpoint: 0
   lastCheckpointX: 0
   lastCheckpointY: 0
   lastCheckpointZ: 0
-  deseaResetearPlayerPreferences: 1
-  resetPantalaCompleta: 1
+  deseaResetearPlayerPreferences: 0
+  resetPantallaCompleta: 0
   resetVibracionDePantalla: 1
   resetVolumenGeneral: 0
   resetMusica: 0
   resetEfectos: 0
   resetPaginas: 0
   resetLastCheckpoint: 0
-  resetLastCheckpointX: 0
-  resetLastCheckpointY: 0
-  resetLastCheckpointZ: 0
+  resetLastCheckpointX: 0.64
+  resetLastCheckpointY: 1.38
+  resetLastCheckpointZ: 2.25
