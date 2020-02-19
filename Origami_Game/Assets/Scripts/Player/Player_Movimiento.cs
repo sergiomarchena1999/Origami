@@ -30,7 +30,7 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Longitud del rayo usado para el raycast.")]
     public float distRayoPies = .2f;
 
-    [HideInInspector]
+   // [HideInInspector]
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
@@ -116,9 +116,15 @@ public class Player_Movimiento : MonoBehaviour
         else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
     
-        //Convertir el input en eje x en movimiento
+        //Convertir el input en eje x en movimiento.
         if(!_cargandoDash)
             _rb.velocity = new Vector2((_inputX * _velocidadPlayer), _rb.velocity.y);
+
+        //Ajustar velocidad.
+        if (_conCaja)
+            _velocidadPlayer = velocidadEmpujando;
+        else
+            _velocidadPlayer = velocidadEnSuelo;
 
         //Detectar input salto.
         if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja && !_cargandoDash)
@@ -234,41 +240,43 @@ public class Player_Movimiento : MonoBehaviour
         else
         {
             _conCaja = false;
+            _anim.speed = 1;
         }
-
-        if (_conCaja)
-            _velocidadPlayer = velocidadEmpujando;
-        else
-            _velocidadPlayer = velocidadEnSuelo;
-
+        
         if (_conCaja && _miraDerecha && _inputX > 0.1)
         {
             _empujando = true;
             _tirando = false;
+
+            _anim.speed = 1;
         }
         else if (_conCaja && !_miraDerecha && _inputX < -0.1)
         {
             _empujando = true;
             _tirando = false;
-            _anim.speed = 0;
+
+            _anim.speed = 1;
         }
         else if (_conCaja && !_miraDerecha && _inputX > 0.1)
         {
             _empujando = false;
             _tirando = true;
+
+            _anim.speed = 1;
         }
         else if (_conCaja && _miraDerecha && _inputX < -0.1)
         {
             _empujando = false;
             _tirando = true;
-            
+
+            _anim.speed = 1;
         }
-        else if (!_conCaja && _inputX == 0)
+        else if (_conCaja && _inputX == 0)
         {
             _empujando = false;
             _tirando = false;
-            
 
+            _anim.speed = 0;
         } 
     }
 
@@ -283,6 +291,8 @@ public class Player_Movimiento : MonoBehaviour
                 Debug.Log("Palanqueando");
                 _usandoPalanca = true;
                 ray.collider.GetComponent<Palanca>().UsarPalanca();
+
+                _anim.SetTrigger("UsarPalanca");
             }
         }
     }
@@ -295,6 +305,7 @@ public class Player_Movimiento : MonoBehaviour
         else
             _isMoving = false;
 
+        _anim.SetBool("ConCaja", _conCaja);
         _anim.SetBool("Tirando", _tirando);
         _anim.SetBool("Empujando", _empujando);
 
