@@ -30,7 +30,7 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Longitud del rayo usado para el raycast.")]
     public float distRayoPies = .2f;
 
-    [HideInInspector]
+   // [HideInInspector]
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
@@ -90,18 +90,14 @@ public class Player_Movimiento : MonoBehaviour
     
     void Update()
     {
-        if (!_usandoPalanca)
-        {
-            GestionMovimiento();
-            GestionDash();
-        }
-
-        if (!_conCaja || _cargandoDash)
-            GestionOrientacion();
-
-        GestionCaja();        
+        GestionMovimiento();
+        GestionCaja();
+        GestionDash();
         GestionPalanca();
         GestionAnimacion();
+
+        if(!_conCaja || _cargandoDash)
+            GestionOrientacion();
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
@@ -294,21 +290,10 @@ public class Player_Movimiento : MonoBehaviour
             {
                 Debug.Log("Palanqueando");
                 _usandoPalanca = true;
+                ray.collider.GetComponent<Palanca>().UsarPalanca();
 
                 _anim.SetTrigger("UsarPalanca");
             }
-        }
-    }
-
-    public void UsarPalanca()
-    {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
-
-        if (ray.collider != null)
-        {
-            ray.collider.GetComponent<Palanca>().AnimacionPalanca();
-
-            _usandoPalanca = false;
         }
     }
 
