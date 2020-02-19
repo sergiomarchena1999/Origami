@@ -28,8 +28,11 @@ public class Player_Nadar : MonoBehaviour
 
     void Update()
     {
-        GestionNado();
-        GestionOrientacion();
+        if (_enAgua)
+        {
+            GestionNado();
+            GestionOrientacion();
+        }  
     }
 
     //Sirve para dar el movimiento en el agua
