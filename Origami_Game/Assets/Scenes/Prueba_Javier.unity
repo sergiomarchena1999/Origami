@@ -216,11 +216,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2372733006056827586, guid: 74447935928fd4440939f055315aa753,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3756420077469743023, guid: 74447935928fd4440939f055315aa753,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -276,38 +271,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6995994037344937315, guid: 74447935928fd4440939f055315aa753,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8292161748145296481, guid: 74447935928fd4440939f055315aa753,
         type: 3}
       propertyPath: m_Name
       value: Paper Boy
       objectReference: {fileID: 0}
+    - target: {fileID: 9112202011159859491, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112202011159859491, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112202011159859491, guid: 74447935928fd4440939f055315aa753,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74447935928fd4440939f055315aa753, type: 3}
---- !u!1 &944144473 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8292161748145296481, guid: 74447935928fd4440939f055315aa753,
-    type: 3}
-  m_PrefabInstance: {fileID: 462449770}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &944144474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944144473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9fc0d021c5326469c57e6a9ec18102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidadNado: 10
-  saltoAgua: 50
 --- !u!1 &1308766766
 GameObject:
   m_ObjectHideFlags: 0

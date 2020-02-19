@@ -13,6 +13,8 @@ public class Player_Audio : MonoBehaviour
     public AudioClip sonidoDash;    
     public AudioClip sonidoSalto;
     public AudioClip sonidoAterrizaje;
+    public AudioClip sonidoZambullirse;
+    public AudioClip sonidoSalirAgua;
 
     void Start()
     {
@@ -88,5 +90,15 @@ public class Player_Audio : MonoBehaviour
             if (_asAire.isPlaying)
                 _asAire.Stop();
         }
+    }
+
+    public void SonidoZambullirse()
+    {
+        _as.PlayOneShot(sonidoZambullirse);
+    }
+
+    public void SonidoSalirAgua()
+    {
+        _as.PlayOneShot(sonidoSalirAgua);
     }
 }
