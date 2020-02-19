@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b56894133a2983441b65dcf81243f8b8
+guid: 331a59fced4854e45bed62858cb8574b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7533470870110351373
-    second: Tubos_horizontal_0
+      213: -6198486100469371128
+    second: plancha_metal_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -34,18 +34,18 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -101,22 +101,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tubos_horizontal_0
+      name: plancha_metal_0
       rect:
         serializedVersion: 2
-        x: 41
-        y: 55
-        width: 1114
-        height: 353
+        x: 36
+        y: 13
+        width: 1551
+        height: 878
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c374910923f2eb84c8d29de21fe61f67
-      internalID: 7533470870110351373
+      spriteID: 78dedd57a81386c41a13a297f4a6abe8
+      internalID: -6198486100469371128
       vertices: []
       indices: 
       edges: []
