@@ -6,7 +6,9 @@ public class Player_Audio : MonoBehaviour
 {
     AudioSource _as;
     AudioSource _asAire;
+    AudioSource _asNadar;
     Player_Movimiento _pm;
+    Player_Nadar _pn;
     
     public AudioClip sonidoIdle;
     public AudioClip sonidoPaso;
@@ -21,6 +23,7 @@ public class Player_Audio : MonoBehaviour
         _as = GetComponent<AudioSource>();
         _pm = GetComponent<Player_Movimiento>();
         _asAire = GameObject.Find("AudioAire").GetComponent<AudioSource>();
+        _asNadar = GameObject.Find("AudioNadar").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -100,5 +103,19 @@ public class Player_Audio : MonoBehaviour
     public void SonidoSalirAgua()
     {
         _as.PlayOneShot(sonidoSalirAgua);
+    }
+
+    public void SonidoEnAgua()
+    {
+        if (!_pn._enAgua)
+        {
+            if (!_asNadar.isPlaying)
+                _asNadar.Play();
+        }
+        else
+        {
+            if (_asNadar.isPlaying)
+                _asNadar.Stop();
+        }
     }
 }

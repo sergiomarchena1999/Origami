@@ -276,21 +276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper Boy
       objectReference: {fileID: 0}
-    - target: {fileID: 9112202011159859491, guid: 74447935928fd4440939f055315aa753,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9112202011159859491, guid: 74447935928fd4440939f055315aa753,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9112202011159859491, guid: 74447935928fd4440939f055315aa753,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74447935928fd4440939f055315aa753, type: 3}
 --- !u!1 &1308766766
