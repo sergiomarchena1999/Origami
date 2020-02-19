@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 6874237781947137294}
   - component: {fileID: 2372733006056827586}
   - component: {fileID: 2124033084912138436}
+  - component: {fileID: 944144474}
   m_Layer: 0
   m_Name: Paper Boy
   m_TagString: Player
@@ -461,6 +462,8 @@ MonoBehaviour:
   sonidoDash: {fileID: 8300000, guid: 0a83ef4c3548cda4299724d26eb56f2e, type: 3}
   sonidoSalto: {fileID: 8300000, guid: ac6aed2d0c92d5f449a9c64e45569f0f, type: 3}
   sonidoAterrizaje: {fileID: 8300000, guid: 222e2f12b1ec84042b5c94460f550676, type: 3}
+  sonidoZambullirse: {fileID: 8300000, guid: 36404026b1ad52f49af2ff1c592ff518, type: 3}
+  sonidoSalirAgua: {fileID: 8300000, guid: 57d317a783b2fe14c86bd6625d4232c7, type: 3}
 --- !u!114 &2372733006056827586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +512,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc9ec4bc3b3e894a89a94f38b1d1915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &944144474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8292161748145296481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9fc0d021c5326469c57e6a9ec18102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadNado: 10
+  saltoAgua: 50
 --- !u!1 &8603305512808314786
 GameObject:
   m_ObjectHideFlags: 0
