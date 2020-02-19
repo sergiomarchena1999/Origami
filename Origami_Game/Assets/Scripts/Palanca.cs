@@ -11,7 +11,7 @@ public class Palanca : MonoBehaviour
         _anim = GetComponent<Animator>();
     }
 
-    public void UsarPalanca()
+    public void AnimacionPalanca()
     {
         _anim.SetTrigger("Activar");
     }
