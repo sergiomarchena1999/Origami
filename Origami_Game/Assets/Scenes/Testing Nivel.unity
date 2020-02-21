@@ -567,7 +567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232340637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.686923, y: 2.3955786, z: -15}
+  m_LocalPosition: {x: 160.84196, y: 26.20475, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1043,18 +1043,18 @@ MonoBehaviour:
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
-  m_ScreenX: 0.2957143
-  m_ScreenY: 0.49092594
+  m_ScreenX: 0.29115304
+  m_ScreenY: 0.69955885
   m_CameraDistance: 15
-  m_DeadZoneWidth: 0.0010416667
+  m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.24
-  m_SoftZoneHeight: 0.42
+  m_SoftZoneHeight: 0.506331
   m_BiasX: 0.030000012
-  m_BiasY: 0.26000002
-  m_CenterOnActivate: 1
+  m_BiasY: 0.21566942
+  m_CenterOnActivate: 0
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
   m_GroupFramingSize: 0.8
@@ -2030,6 +2030,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &662267223 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866219847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &696637649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3043,7 +3049,7 @@ PrefabInstance:
     - target: {fileID: 4646834783572628878, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 140.8
+      value: 134.34
       objectReference: {fileID: 0}
     - target: {fileID: 4646834783572628878, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
         type: 3}
@@ -3606,7 +3612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388114738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.9, y: -11.65, z: 1.7}
+  m_LocalPosition: {x: 136.1, y: -11.65, z: 1.7}
   m_LocalScale: {x: 0.65797997, y: 0.65797997, z: 0.65797997}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3858,7 +3864,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 662267223}
   m_Lens:
     FieldOfView: 100
     OrthographicSize: 15.61
@@ -3882,7 +3888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547111182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.686923, y: 2.3955786, z: -15}
+  m_LocalPosition: {x: 160.84196, y: 26.20475, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 297271053}
@@ -4195,12 +4201,12 @@ PrefabInstance:
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.919917
+      value: 147.58
       objectReference: {fileID: 0}
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3866844
+      value: 19.07
       objectReference: {fileID: 0}
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
@@ -5114,6 +5120,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ef1a7ccd8d4e22a4db89616d0f17dbe4, type: 2}
+    - target: {fileID: 5467638559484985522, guid: 5aad78f1df59f8e4c903eaef7cd99780,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.492
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467638559484985522, guid: 5aad78f1df59f8e4c903eaef7cd99780,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.236
+      objectReference: {fileID: 0}
     - target: {fileID: 5467638559484985523, guid: 5aad78f1df59f8e4c903eaef7cd99780,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5127,12 +5143,12 @@ PrefabInstance:
     - target: {fileID: 8176356111003542164, guid: 5aad78f1df59f8e4c903eaef7cd99780,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 133
+      value: 122.69
       objectReference: {fileID: 0}
     - target: {fileID: 8176356111003542164, guid: 5aad78f1df59f8e4c903eaef7cd99780,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.62
+      value: 18.22
       objectReference: {fileID: 0}
     - target: {fileID: 8176356111003542164, guid: 5aad78f1df59f8e4c903eaef7cd99780,
         type: 3}
@@ -5199,6 +5215,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ef1a7ccd8d4e22a4db89616d0f17dbe4, type: 2}
+    - target: {fileID: 8176356111003542170, guid: 5aad78f1df59f8e4c903eaef7cd99780,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00000024586916
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176356111003542170, guid: 5aad78f1df59f8e4c903eaef7cd99780,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.07269293
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176356111003542170, guid: 5aad78f1df59f8e4c903eaef7cd99780,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.2957292
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176356111003542170, guid: 5aad78f1df59f8e4c903eaef7cd99780,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.75145835
+      objectReference: {fileID: 0}
     - target: {fileID: 8176356111003542171, guid: 5aad78f1df59f8e4c903eaef7cd99780,
         type: 3}
       propertyPath: m_Name
@@ -5243,6 +5279,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ayuda Dash
       objectReference: {fileID: 0}
+    - target: {fileID: 7529760612257237414, guid: 275ca93c8abf60b42a44bb9e5bab767f,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 7529760612257237415, guid: 275ca93c8abf60b42a44bb9e5bab767f,
         type: 3}
       propertyPath: m_Offset.x
