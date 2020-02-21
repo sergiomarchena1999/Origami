@@ -11,7 +11,8 @@ public class Menu_opciones : MonoBehaviour
 
     // Valorespara el slider
     public AudioMixer mixer;
-    
+
+    public GameManager sliders;
 
     //////////////////////////////////////
     public void Volver()
@@ -23,6 +24,11 @@ public class Menu_opciones : MonoBehaviour
         //guardar las opciones que se han usado
         SceneManager.UnloadSceneAsync("Menu opciones");
 
+    }
+
+    private void Awake()
+    {
+        
     }
 
     ///////////////////////////// Datos para canvas ///////////////////////////
