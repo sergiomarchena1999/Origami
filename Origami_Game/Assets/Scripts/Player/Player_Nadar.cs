@@ -9,6 +9,7 @@ public class Player_Nadar : MonoBehaviour
     GameObject _go;
     Player_Movimiento _instanciaMov;
     float _inputX;
+    float _inputY;
     bool _miraDerecha = true;
 
     [Tooltip("Asigna la velocidad a la que se mueve paper boy en el agua")]
@@ -31,7 +32,8 @@ public class Player_Nadar : MonoBehaviour
         if (_enAgua)
         {
             GestionNado();
-            GestionOrientacion();
+            //GestionOrientacionHorizontal();
+            //GestionOrientacionVertical();
         }  
     }
 
@@ -39,7 +41,8 @@ public class Player_Nadar : MonoBehaviour
     void GestionNado()
     {
         _inputX = Input.GetAxisRaw("Horizontal");
-        _rb.velocity = new Vector2(_inputX * velocidadNado, _rb.velocity.y);
+        _inputY = Input.GetAxisRaw("Vertical");
+        _rb.velocity = new Vector2(_inputX * velocidadNado, _inputY * velocidadNado);
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -47,7 +50,7 @@ public class Player_Nadar : MonoBehaviour
         }
     }
 
-    void GestionOrientacion()
+    void GestionOrientacionHorizontal()
     {
         if (_inputX > 0.01 && _miraDerecha == false)
         {
@@ -64,24 +67,52 @@ public class Player_Nadar : MonoBehaviour
                 transform.Rotate(0, 180, 0);
         }
     }
+    void GestionOrientacionVertical()
+    {
+        if (_inputY > 0.01)
+        {
+            if (transform.rotation != Quaternion.Euler(0, 0, 90))
+                transform.Rotate(0, 0, 90);
+        }
+        else if (_inputY < -0.01)
+        {
+            if (transform.rotation != Quaternion.Euler(0, 0, -90))
+                transform.Rotate(0, 0, -90);
+        }
+        else if (_inputY == 0)
+        {
+            if (transform.rotation != Quaternion.Euler(0, 0, 90))
+            {
+                transform.Rotate(0, 0, -90);
+            }
+            if (transform.rotation != Quaternion.Euler(0, 0, -90))
+            {
+                transform.Rotate(0, 0, 90);
+            }
+
+        }
+    }
 
     //Desactiva el código de movimiento y activa la animación de transformación a pez
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Agua"))
+        if (collision.CompareTag("Agua") && !_enAgua )
         {
             _enAgua = true;
             _instanciaMov.enabled = false;
-            _myAnim.Play("Trans_Pez");
+            _myAnim.SetTrigger("Pez");
         }
     }
 
     //Desactiva el código de nadar y reactiva el del movimiento. Además activa la animación de transformación a pez
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _enAgua = false;
-        _instanciaMov.enabled = true;
-        this.enabled = false;
-        _myAnim.Play("Trans_Player");
+        if (collision.CompareTag("Agua") && _enAgua)
+        {
+            Debug.Log("Fuera Agua");
+            _enAgua = false;
+            _instanciaMov.enabled = true;
+            _myAnim.SetTrigger("Humano");
+        } 
     }
 }
