@@ -16,7 +16,8 @@ public class Player_Nadar : MonoBehaviour
     [Tooltip("Asigna la capacidad de salto de paper boy en el agua")]
     public float saltoAgua = 2;
 
-    bool _enAgua;
+    [HideInInspector]
+    public bool _enAgua = false;
 
     void Start()
     {
@@ -27,8 +28,11 @@ public class Player_Nadar : MonoBehaviour
 
     void Update()
     {
-        GestionNado();
-        GestionOrientacion();
+        if (_enAgua)
+        {
+            GestionNado();
+            GestionOrientacion();
+        }  
     }
 
     //Sirve para dar el movimiento en el agua
@@ -66,6 +70,7 @@ public class Player_Nadar : MonoBehaviour
     {
         if (collision.CompareTag("Agua"))
         {
+            _enAgua = true;
             _instanciaMov.enabled = false;
             _myAnim.Play("Trans_Pez");
         }
@@ -74,6 +79,7 @@ public class Player_Nadar : MonoBehaviour
     //Desactiva el código de nadar y reactiva el del movimiento. Además activa la animación de transformación a pez
     private void OnTriggerExit2D(Collider2D collision)
     {
+        _enAgua = false;
         _instanciaMov.enabled = true;
         this.enabled = false;
         _myAnim.Play("Trans_Player");

@@ -6,24 +6,31 @@ public class Player_Audio : MonoBehaviour
 {
     AudioSource _as;
     AudioSource _asAire;
+    AudioSource _asNadar;
     Player_Movimiento _pm;
+    Player_Nadar _pn;
     
     public AudioClip sonidoIdle;
     public AudioClip sonidoPaso;
     public AudioClip sonidoDash;    
     public AudioClip sonidoSalto;
     public AudioClip sonidoAterrizaje;
+    public AudioClip sonidoZambullirse;
+    public AudioClip sonidoSalirAgua;
 
     void Start()
     {
         _as = GetComponent<AudioSource>();
         _pm = GetComponent<Player_Movimiento>();
+        _pn = GetComponent<Player_Nadar>();
         _asAire = GameObject.Find("AudioAire").GetComponent<AudioSource>();
+        _asNadar = GameObject.Find("AudioNadar").GetComponent<AudioSource>();
     }
 
     void Update()
     {
         SonidoEnAire();
+        SonidoEnAgua();
     }
 
     /// <summary>
@@ -76,9 +83,23 @@ public class Player_Audio : MonoBehaviour
         _as.PlayOneShot(sonidoAterrizaje);
     }
 
+    public void SonidoEnAgua()
+    {
+        if (_pn._enAgua)
+        {
+            if (!_asNadar.isPlaying)
+                _asNadar.Play();
+        }
+        else
+        {
+            if (_asNadar.isPlaying)
+                _asNadar.Stop();
+        }
+    }
+
     public void SonidoEnAire()
     {
-        if (!_pm._enSuelo)
+        if (!_pm._enSuelo && !_pn._enAgua)
         {
             if (!_asAire.isPlaying)
                 _asAire.Play();
@@ -89,4 +110,22 @@ public class Player_Audio : MonoBehaviour
                 _asAire.Stop();
         }
     }
+
+    /// <summary>
+    /// Se ejecuta desde la animación Trans_Pez.
+    /// </summary>
+    public void SonidoZambullirse()
+    {
+        _as.PlayOneShot(sonidoZambullirse);
+    }
+
+    /// <summary>
+    /// Se ejecuta desde la animación Trans_Player.
+    /// </summary>
+    public void SonidoSalirAgua()
+    {
+        _as.PlayOneShot(sonidoSalirAgua);
+    }
+
+   
 }

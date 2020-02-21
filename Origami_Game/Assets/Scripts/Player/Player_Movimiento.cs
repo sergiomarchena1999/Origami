@@ -30,13 +30,15 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Longitud del rayo usado para el raycast.")]
     public float distRayoPies = .2f;
 
-    [HideInInspector]
+   // [HideInInspector]
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
     bool _dashDisponible = false;
-    bool _cargandoDash = false;
-    bool _miraDerecha = true;    
+    bool _usandoPalanca = false;
+    bool _cargandoDash = false;    
+    [HideInInspector]
+    public bool _miraDerecha = true;    
 
     //Fuerza del salto del personaje.
     float fuerzaSalto;
@@ -54,6 +56,8 @@ public class Player_Movimiento : MonoBehaviour
     public LayerMask capaSuelo;
     [Tooltip("Seleccionar la layer Caja.")]
     public LayerMask capaCaja;
+    [Tooltip("Seleccionar la layer Palanca.")]
+    public LayerMask capaPalanca;
 
     [Space]
     [Tooltip("Posicion del raycast de la izquierda.")]
@@ -62,7 +66,9 @@ public class Player_Movimiento : MonoBehaviour
     public Transform raycastDer;
 
     //Variables Animator
-    bool isMoving = false;
+    bool _isMoving = false;
+    bool _empujando = false;
+    bool _tirando = false;
     float _velocidadY;
 
     //Copia para acceder al script de nadar
@@ -87,6 +93,7 @@ public class Player_Movimiento : MonoBehaviour
         GestionMovimiento();
         GestionCaja();
         GestionDash();
+        GestionPalanca();
         GestionAnimacion();
 
         if(!_conCaja || _cargandoDash)
@@ -109,9 +116,15 @@ public class Player_Movimiento : MonoBehaviour
         else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
     
-        //Convertir el input en eje x en movimiento
+        //Convertir el input en eje x en movimiento.
         if(!_cargandoDash)
             _rb.velocity = new Vector2((_inputX * _velocidadPlayer), _rb.velocity.y);
+
+        //Ajustar velocidad.
+        if (_conCaja)
+            _velocidadPlayer = velocidadEmpujando;
+        else
+            _velocidadPlayer = velocidadEnSuelo;
 
         //Detectar input salto.
         if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja && !_cargandoDash)
@@ -227,26 +240,76 @@ public class Player_Movimiento : MonoBehaviour
         else
         {
             _conCaja = false;
+            _anim.speed = 1;
         }
+        
+        if (_conCaja && _miraDerecha && _inputX > 0.1)
+        {
+            _empujando = true;
+            _tirando = false;
 
-        if (_conCaja)
-            _velocidadPlayer = velocidadEmpujando;
-        else
-            _velocidadPlayer = velocidadEnSuelo;
+            _anim.speed = 1;
+        }
+        else if (_conCaja && !_miraDerecha && _inputX < -0.1)
+        {
+            _empujando = true;
+            _tirando = false;
 
+            _anim.speed = 1;
+        }
+        else if (_conCaja && !_miraDerecha && _inputX > 0.1)
+        {
+            _empujando = false;
+            _tirando = true;
 
-        _anim.SetBool("Empujando", _conCaja);
+            _anim.speed = 1;
+        }
+        else if (_conCaja && _miraDerecha && _inputX < -0.1)
+        {
+            _empujando = false;
+            _tirando = true;
+
+            _anim.speed = 1;
+        }
+        else if (_conCaja && _inputX == 0)
+        {
+            _empujando = false;
+            _tirando = false;
+
+            _anim.speed = 0;
+        } 
+    }
+
+    void GestionPalanca()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+
+        if (ray.collider != null)
+        {
+            if (Input.GetButton("Usar") && _enSuelo)
+            {
+                Debug.Log("Palanqueando");
+                _usandoPalanca = true;
+                ray.collider.GetComponent<Palanca>().UsarPalanca();
+
+                _anim.SetTrigger("UsarPalanca");
+            }
+        }
     }
 
     //Función que se encarga de mandarle información al Animator.
     void GestionAnimacion()
     {
         if (_inputX != 0)
-            isMoving = true;
+            _isMoving = true;
         else
-            isMoving = false;
+            _isMoving = false;
 
-        _anim.SetBool("Running", isMoving);
+        _anim.SetBool("ConCaja", _conCaja);
+        _anim.SetBool("Tirando", _tirando);
+        _anim.SetBool("Empujando", _empujando);
+
+        _anim.SetBool("Running", _isMoving);
         _anim.SetBool("Grounded", _enSuelo);
         _anim.SetFloat("VelocidadY", _velocidadY);
     }

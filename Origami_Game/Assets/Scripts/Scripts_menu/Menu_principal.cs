@@ -16,7 +16,7 @@ public class Menu_principal : MonoBehaviour
     public void NuevaPartida()
     {
         //TODO: Borrar el player pref
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
     public void CargarPartida()
     {
