@@ -70,6 +70,7 @@ public class Player_Nadar : MonoBehaviour
     {
         if (collision.CompareTag("Agua"))
         {
+            _enAgua = true;
             _instanciaMov.enabled = false;
             _myAnim.Play("Trans_Pez");
         }
@@ -78,6 +79,7 @@ public class Player_Nadar : MonoBehaviour
     //Desactiva el código de nadar y reactiva el del movimiento. Además activa la animación de transformación a pez
     private void OnTriggerExit2D(Collider2D collision)
     {
+        _enAgua = false;
         _instanciaMov.enabled = true;
         this.enabled = false;
         _myAnim.Play("Trans_Player");

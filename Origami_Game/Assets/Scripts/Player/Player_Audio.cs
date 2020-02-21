@@ -24,6 +24,7 @@ public class Player_Audio : MonoBehaviour
         _pm = GetComponent<Player_Movimiento>();
         _pn = GetComponent<Player_Nadar>();
         _asAire = GameObject.Find("AudioAire").GetComponent<AudioSource>();
+        _asNadar = GameObject.Find("AudioNadar").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -125,4 +126,6 @@ public class Player_Audio : MonoBehaviour
     {
         _as.PlayOneShot(sonidoSalirAgua);
     }
+
+   
 }
