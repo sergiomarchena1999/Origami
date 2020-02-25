@@ -70,6 +70,9 @@ public class Player_Movimiento : MonoBehaviour
     bool _empujando = false;
     bool _tirando = false;
     float _velocidadY;
+    float movMenu = 1;
+
+    public bool movimientoMenu = false;
 
     //Copia para acceder al script de nadar
     Player_Nadar _instaciaNadar;
@@ -105,8 +108,15 @@ public class Player_Movimiento : MonoBehaviour
     {
         RaycastHit2D rayIzq = Physics2D.Raycast(raycastIzq.position, -transform.up, distRayoPies, capaSuelo);
         RaycastHit2D rayDer = Physics2D.Raycast(raycastDer.position, -transform.up, distRayoPies, capaSuelo);
-
-        _inputX = Input.GetAxisRaw("Horizontal");
+        if (movimientoMenu)
+        {
+            _inputX = movMenu;
+        }
+        else
+        {
+            _inputX = Input.GetAxisRaw("Horizontal");
+        }
+        
 
         if (rayIzq.collider != null || rayDer.collider != null)
         {
@@ -331,6 +341,11 @@ public class Player_Movimiento : MonoBehaviour
         if (collision.CompareTag("Agua"))
         {
             _instaciaNadar.enabled = true;
+        }
+
+        if (collision.CompareTag("MenuGira"))
+        {
+            movMenu = movMenu * -1;
         }
     }
 }
