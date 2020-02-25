@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4517458440195301685}
   - component: {fileID: 2517107599845932387}
   - component: {fileID: 3000214508380179707}
+  - component: {fileID: 4215147425155670216}
   m_Layer: 0
   m_Name: Chorro Agua (2)
   m_TagString: Agua
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &2517107599845932387
@@ -127,6 +128,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7883244, y: 10.8}
   m_EdgeRadius: 0
+--- !u!253 &4215147425155670216
+BuoyancyEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232509652880485523}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SurfaceLevel: 2.22
+  m_Density: 0.1
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_FlowAngle: 270
+  m_FlowMagnitude: 10
+  m_FlowVariation: 0
 --- !u!1 &822037059853924977
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +240,7 @@ GameObject:
   - component: {fileID: 822037060505473047}
   - component: {fileID: 8851254665124850507}
   m_Layer: 0
-  m_Name: Tubos_vertical (1)
+  m_Name: "Tuber\xEDa con agua 2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
