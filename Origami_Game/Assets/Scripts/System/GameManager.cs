@@ -96,9 +96,10 @@ public class GameManager : MonoBehaviour
     #region Start - Update - Awake
     void Awake()
     {
+        RestartPlayerSettings();
         StartingLoad();
         KeepOnLoadStart();
-        RestartPlayerSettings();
+        
 
 
     }
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("VolumenEfectos", resetLastCheckpoint);
 
             //reset Pantalla y Vabracion.
-            if (pantallaCompleta)
+            if (pantallaCompleta==true)
             {
                 PlayerPrefs.SetInt("PantallaCompleta", 1);
             }
@@ -145,7 +146,7 @@ public class GameManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("PantallaCompleta", 0);
             }
-            if (resetVibracionDePantalla)
+            if (resetVibracionDePantalla == true)
             {
                 PlayerPrefs.SetInt("VibracionDePantalla", 1);
             }
@@ -164,7 +165,7 @@ public class GameManager : MonoBehaviour
     void StartingLoad()
     {
         //Opciones del menu.
-        if (PlayerPrefs.GetFloat(CheckPref("PantallaCompleta", "Float"))==0)
+        if (PlayerPrefs.GetInt(CheckPref("PantallaCompleta", "Int")) == 0)
         {
             pantallaCompleta = false;
         }
@@ -173,7 +174,7 @@ public class GameManager : MonoBehaviour
             pantallaCompleta = true;
         }
 
-        if (PlayerPrefs.GetFloat(CheckPref("VibracionDePantalla", "Float")) == 0)
+        if (PlayerPrefs.GetInt(CheckPref("VibracionDePantalla", "Int")) == 0)
         {
             vibracionDePantalla = false;
         }
@@ -206,12 +207,14 @@ public class GameManager : MonoBehaviour
             if (KindOfValueFloatOrInt == "Int" | KindOfValueFloatOrInt == "int")
             {
                 PlayerPrefs.SetInt(PrefName, 0);
+                PlayerPrefs.Save();
                 return PrefName;
             }
 
             if (KindOfValueFloatOrInt == "Float" | KindOfValueFloatOrInt == "float")
             {
                 PlayerPrefs.SetFloat(PrefName, 0);
+                PlayerPrefs.Save();
                 return PrefName;
             }
         }
