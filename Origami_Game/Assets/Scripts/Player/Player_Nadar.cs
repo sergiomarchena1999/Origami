@@ -6,16 +6,18 @@ public class Player_Nadar : MonoBehaviour
 {
     Animator _myAnim;
     Rigidbody2D _rb;
-    GameObject _go;
     Player_Movimiento _instanciaMov;
     float _inputX;
     float _inputY;
-    bool _miraDerecha = true;
 
     [Tooltip("Asigna la velocidad a la que se mueve paper boy en el agua")]
     public float velocidadNado = 5;
     [Tooltip("Asigna la capacidad de salto de paper boy en el agua")]
     public float saltoAgua = 2;
+    [Tooltip("Capacidad de giro en el agua")]
+    public float giro = 5;
+    [Tooltip("Potencia de nado")]
+    public float potencia = 10;
 
     [HideInInspector]
     public bool _enAgua = false;
@@ -31,65 +33,38 @@ public class Player_Nadar : MonoBehaviour
     {
         if (_enAgua)
         {
+            CapturarEjes();
             GestionNado();
-            //GestionOrientacionHorizontal();
-            //GestionOrientacionVertical();
         }  
+    }
+
+    void CapturarEjes()
+    {
+        _inputX = Input.GetAxisRaw("Horizontal");
+        _inputY = Input.GetAxisRaw("Vertical");
     }
 
     //Sirve para dar el movimiento en el agua
     void GestionNado()
     {
-        _inputX = Input.GetAxisRaw("Horizontal");
-        _inputY = Input.GetAxisRaw("Vertical");
-        _rb.velocity = new Vector2(_inputX * velocidadNado, _inputY * velocidadNado);
+        float vmax;
+        float direccion = Mathf.Sign(Vector2.Dot(_rb.velocity, _rb.GetRelativeVector(Vector2.up)));
+        _rb.velocity = transform.up * _rb.velocity.magnitude * direccion;
+
+        float torque = _inputX * giro * Time.deltaTime;
+        _rb.AddTorque(-torque * direccion);
+
+        vmax = velocidadNado;
+
+        if (_rb.velocity.magnitude < vmax)
+        {
+            float aceleracion = _inputY * potencia * Time.deltaTime;
+            _rb.AddForce(transform.up * aceleracion);
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
             _rb.velocity = Vector2.up * saltoAgua;
-        }
-    }
-
-    void GestionOrientacionHorizontal()
-    {
-        if (_inputX > 0.01 && _miraDerecha == false)
-        {
-            _miraDerecha = true;
-
-            if (transform.rotation != Quaternion.Euler(0, 0, 0))
-                transform.Rotate(0, 180, 0);
-        }
-        else if (_inputX < -0.01 && _miraDerecha == true)
-        {
-            _miraDerecha = false;
-
-            if (transform.rotation != Quaternion.Euler(0, 180, 0))
-                transform.Rotate(0, 180, 0);
-        }
-    }
-    void GestionOrientacionVertical()
-    {
-        if (_inputY > 0.01)
-        {
-            if (transform.rotation != Quaternion.Euler(0, 0, 90))
-                transform.Rotate(0, 0, 90);
-        }
-        else if (_inputY < -0.01)
-        {
-            if (transform.rotation != Quaternion.Euler(0, 0, -90))
-                transform.Rotate(0, 0, -90);
-        }
-        else if (_inputY == 0)
-        {
-            if (transform.rotation != Quaternion.Euler(0, 0, 90))
-            {
-                transform.Rotate(0, 0, -90);
-            }
-            if (transform.rotation != Quaternion.Euler(0, 0, -90))
-            {
-                transform.Rotate(0, 0, 90);
-            }
-
         }
     }
 
