@@ -56,11 +56,11 @@ public class Player_Nadar : MonoBehaviour
 
         vmax = velocidadNado;
 
-        //if (_rb.velocity.magnitude < vmax)
-        //{
+        if (_rb.velocity.magnitude < vmax)
+        {
             float aceleracion = _inputY * potencia * Time.deltaTime;
             _rb.AddForce(transform.up * aceleracion);
-        //}
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
