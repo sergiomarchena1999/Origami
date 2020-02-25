@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 698671242418268099
     second: RataCorrerSecuencia_4
+  - first:
+      213: 4448869760565659707
+    second: RataCorrerSecuencia_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -141,8 +144,8 @@ TextureImporter:
         y: 138
         width: 378
         height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,12 +161,12 @@ TextureImporter:
       name: RataCorrerSecuencia_2
       rect:
         serializedVersion: 2
-        x: 814
+        x: 815
         y: 137
-        width: 810
+        width: 405
         height: 136
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,8 +186,8 @@ TextureImporter:
         y: 2
         width: 386
         height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,8 +207,8 @@ TextureImporter:
         y: 0
         width: 369
         height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,6 +216,27 @@ TextureImporter:
       bones: []
       spriteID: 6ae69f9038c1d7d4298b3686d8a9a1ba
       internalID: 698671242418268099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RataCorrerSecuencia_5
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 137
+        width: 407
+        height: 136
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755f64e7608d1d54185ada68352f2364
+      internalID: 4448869760565659707
       vertices: []
       indices: 
       edges: []
