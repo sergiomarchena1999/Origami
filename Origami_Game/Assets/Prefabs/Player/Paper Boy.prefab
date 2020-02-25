@@ -317,8 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1178478ccdd50a44856e493e820e863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoSalto: 3
-  alturaSalto: 10
+  tiempoSalto: 4
+  alturaSalto: 14
   tiempoDash: 0.2
   velocidadDash: 50
   verticalidadDash: 4

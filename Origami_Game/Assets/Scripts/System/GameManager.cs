@@ -10,31 +10,41 @@ public class GameManager : MonoBehaviour
 
     #region Variablees
     //----[Menu de Opciones]--------<
+    [SerializeField]
     [Header("Actual Options Data")]
     
-    public bool pantallaCompleta=false;
-    public bool vibracionDePantalla =false;
+    bool pantallaCompleta=false;
+    [SerializeField]
+    bool vibracionDePantalla =false;
+    [SerializeField]
     [Range(0, 1)]
-    public float volumenGeneral =0;
+    float volumenGeneral =0;
+    [SerializeField]
     [Range(0, 1)]
-    public float musica =0;
+    float musica =0;
+    [SerializeField]
     [Range(0, 1)]
-    public float efectos =0;
-
+    float efectos =0;
+    
 
 
     //----[Player Settings]--------<
+    [SerializeField]
     [Header("Actual Player Settings Data")]
     
-    public int[] paginas = { 0, 0, 0, 0, 0 };
+    int[] paginas = { 0, 0, 0, 0, 0 };
 
     // info Checpoint//
+    [SerializeField]
     [Range(0, 5)]
-    public int lastCheckpoint = 0;
+    int lastCheckpoint = 0;
     //
-    public float lastCheckpointX;
-    public float lastCheckpointY;
-    public float lastCheckpointZ;
+    [SerializeField]
+    float lastCheckpointX;
+    [SerializeField]
+    float lastCheckpointY;
+    [SerializeField]
+    float lastCheckpointZ;
     //
     // 0 = Biblioteca
     // 1 = Sala del Diario
@@ -44,33 +54,40 @@ public class GameManager : MonoBehaviour
     // 5 = Mina encantadas
     //
     //---------------:
-    
+
 
 
     //----[Reset Settings to Default]--------<
-
+    [SerializeField]
     [Header("Reset Settings to Default Data")]
     [Space(10)]
-    public bool deseaResetearPlayerPreferences = false;
+    bool deseaResetearPlayerPreferences = false;
+    [SerializeField]
     [Space(20)]
-    public bool resetPantallaCompleta = false;
-    public bool resetVibracionDePantalla = false;
+    bool resetPantallaCompleta = false;
+    [SerializeField]
+    bool resetVibracionDePantalla = false;
+    [SerializeField]
     [Range(0, 1)]
-    public float resetVolumenGeneral = 0;
+    float resetVolumenGeneral = 0;
+    [SerializeField]
     [Range(0, 1)]
-    public float resetMusica = 0;
+    float resetMusica = 0;
+    [SerializeField]
     [Range(0, 1)]
-    public float resetEfectos = 0;
-
+    float resetEfectos = 0;
+    [SerializeField]
     [Range(0, 5)]
-    public float resetPaginas = 0;
-    
+    float resetPaginas = 0;
+    [SerializeField]
     [Range(0, 5)]
-    public int resetLastCheckpoint = 0;
-    
-    public float resetLastCheckpointX;
-    public float resetLastCheckpointY;
-    public float resetLastCheckpointZ;
+    int resetLastCheckpoint = 0;
+    [SerializeField]
+    float resetLastCheckpointX;
+    [SerializeField]
+    float resetLastCheckpointY;
+    [SerializeField]
+    float resetLastCheckpointZ;
     #endregion
 
 
@@ -79,15 +96,12 @@ public class GameManager : MonoBehaviour
     #region Start - Update - Awake
     void Awake()
     {
+        RestartPlayerSettings();
+        StartingLoad();
         KeepOnLoadStart();
         
-        if (PlayerPrefs.HasKey("posicionx"))
-        {
-            lastCheckpointX = PlayerPrefs.GetFloat("posicionx");
-            lastCheckpointY = PlayerPrefs.GetFloat("posiciony");
-            lastCheckpointZ = PlayerPrefs.GetFloat("posicionz");
-            
-        }
+
+
     }
     private void Start()
     {
@@ -102,52 +116,56 @@ public class GameManager : MonoBehaviour
     #region Metodos
     void RestartPlayerSettings()
     {
-        //Reset posicion checkpoint a valores dados en el inspector.
-        PlayerPrefs.SetFloat("posicionx", resetLastCheckpointX);
-        PlayerPrefs.SetFloat("posiciony", resetLastCheckpointY);
-        PlayerPrefs.SetFloat("posicionz", resetLastCheckpointZ);
-        //Reset paginas a valores dados en el inspector.
-        for (int i = 0; i < 5; i++)
+        if (deseaResetearPlayerPreferences== true)
         {
-            if (PlayerPrefs.HasKey("pag" + i))
+            //Reset posicion checkpoint a valores dados en el inspector.
+            PlayerPrefs.SetFloat("posicionx", resetLastCheckpointX);
+            PlayerPrefs.SetFloat("posiciony", resetLastCheckpointY);
+            PlayerPrefs.SetFloat("posicionz", resetLastCheckpointZ);
+            //Reset paginas a valores dados en el inspector.
+            for (int i = 0; i < 5; i++)
             {
-                PlayerPrefs.SetFloat("pag" + i, resetPaginas);
+                if (PlayerPrefs.HasKey("pag" + i))
+                {
+                    PlayerPrefs.SetFloat("pag" + i, resetPaginas);
+                }
             }
-        }
-        //Reset Checkpoint a valores dados en el inspector.
-        PlayerPrefs.SetInt("NivelActual", resetLastCheckpoint);
-        //Reset Opciones a valores dados en el inspector.
-        PlayerPrefs.SetFloat("VolumenGeneral", resetVolumenGeneral);
-        PlayerPrefs.SetFloat("VolumenMusica", resetMusica);
-        PlayerPrefs.SetFloat("VolumenEfectos", resetLastCheckpoint);
+            //Reset Checkpoint a valores dados en el inspector.
+            PlayerPrefs.SetInt("NivelActual", resetLastCheckpoint);
+            //Reset Opciones a valores dados en el inspector.
+            PlayerPrefs.SetFloat("VolumenGeneral", resetVolumenGeneral);
+            PlayerPrefs.SetFloat("VolumenMusica", resetMusica);
+            PlayerPrefs.SetFloat("VolumenEfectos", resetLastCheckpoint);
 
-        //reset Pantalla y Vabracion.
-        if (pantallaCompleta)
-        {
-            PlayerPrefs.SetInt("PantallaCompleta", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("PantallaCompleta", 0);
-        }
-        if (resetVibracionDePantalla)
-        {
-            PlayerPrefs.SetInt("VibracionDePantalla", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("VibracionDePantalla", 0);
-        }
-
+            //reset Pantalla y Vabracion.
+            if (pantallaCompleta==true)
+            {
+                PlayerPrefs.SetInt("PantallaCompleta", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("PantallaCompleta", 0);
+            }
+            if (resetVibracionDePantalla == true)
+            {
+                PlayerPrefs.SetInt("VibracionDePantalla", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("VibracionDePantalla", 0);
+            }
 
 
-        PlayerPrefs.Save();
+
+            PlayerPrefs.Save();
+        }
+        
     }
 
     void StartingLoad()
     {
         //Opciones del menu.
-        if (PlayerPrefs.GetFloat(CheckPref("PantallaCompleta", "Float"))==0)
+        if (PlayerPrefs.GetInt(CheckPref("PantallaCompleta", "Int")) == 0)
         {
             pantallaCompleta = false;
         }
@@ -156,7 +174,7 @@ public class GameManager : MonoBehaviour
             pantallaCompleta = true;
         }
 
-        if (PlayerPrefs.GetFloat(CheckPref("VibracionDePantalla", "Float")) == 0)
+        if (PlayerPrefs.GetInt(CheckPref("VibracionDePantalla", "Int")) == 0)
         {
             vibracionDePantalla = false;
         }
@@ -189,12 +207,14 @@ public class GameManager : MonoBehaviour
             if (KindOfValueFloatOrInt == "Int" | KindOfValueFloatOrInt == "int")
             {
                 PlayerPrefs.SetInt(PrefName, 0);
+                PlayerPrefs.Save();
                 return PrefName;
             }
 
             if (KindOfValueFloatOrInt == "Float" | KindOfValueFloatOrInt == "float")
             {
                 PlayerPrefs.SetFloat(PrefName, 0);
+                PlayerPrefs.Save();
                 return PrefName;
             }
         }

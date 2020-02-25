@@ -30,15 +30,16 @@ public class Player_Movimiento : MonoBehaviour
     [Tooltip("Longitud del rayo usado para el raycast.")]
     public float distRayoPies = .2f;
 
-   // [HideInInspector]
+    [HideInInspector]
+    public bool _usandoPalanca = false;
+    [HideInInspector]
+    public bool _miraDerecha = true;
+    [HideInInspector]
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
-    bool _dashDisponible = false;
-    bool _usandoPalanca = false;
-    bool _cargandoDash = false;    
-    [HideInInspector]
-    public bool _miraDerecha = true;    
+    bool _dashDisponible = false;    
+    bool _cargandoDash = false;            
 
     //Fuerza del salto del personaje.
     float fuerzaSalto;
@@ -296,14 +297,23 @@ public class Player_Movimiento : MonoBehaviour
 
         if (ray.collider != null)
         {
-            if (Input.GetButton("Usar") && _enSuelo)
+            if (Input.GetButton("Usar") && _enSuelo && !ray.collider.GetComponent<Palanca>().activada)
             {
                 Debug.Log("Palanqueando");
                 _usandoPalanca = true;
-                ray.collider.GetComponent<Palanca>().UsarPalanca();
 
                 _anim.SetTrigger("UsarPalanca");
             }
+        }
+    }
+
+    public void UsarPalanca()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+
+        if (ray.collider != null)
+        {
+            ray.collider.GetComponent<Palanca>().UsarPalanca();
         }
     }
 
