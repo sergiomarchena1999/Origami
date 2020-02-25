@@ -34,7 +34,7 @@ public class Player_Movimiento : MonoBehaviour
     public bool _usandoPalanca = false;
     [HideInInspector]
     public bool _miraDerecha = true;
-    [HideInInspector]
+    
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
@@ -217,10 +217,11 @@ public class Player_Movimiento : MonoBehaviour
     //Función que se encarga de qué hacer cuando se empuja o tira de una caja.
     void GestionCaja()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0,.1f,0), transform.forward, distRayoCaja, capaCaja);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0,.1f,0), transform.right, distRayoCaja, capaCaja);
 
         if (ray.collider != null)
         {
+            Debug.Log(ray.collider.name);
             if (Input.GetButton("Empujar") && _enSuelo)
             {
                 Debug.Log("Empujando");
@@ -278,12 +279,18 @@ public class Player_Movimiento : MonoBehaviour
             _tirando = false;
 
             _anim.speed = 0;
-        } 
+        }
+
+        if (!_conCaja)
+        {
+            _empujando = false;
+            _tirando = false;
+        }
     }
 
     void GestionPalanca()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.right, distRayoCaja, capaPalanca);
 
         if (ray.collider != null)
         {
@@ -299,7 +306,7 @@ public class Player_Movimiento : MonoBehaviour
 
     public void UsarPalanca()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.right, distRayoCaja, capaPalanca);
 
         if (ray.collider != null)
         {
