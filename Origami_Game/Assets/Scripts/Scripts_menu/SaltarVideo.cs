@@ -12,6 +12,14 @@ public class SaltarVideo : MonoBehaviour
         Invoke("saltarEscena",time);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            saltarEscena();
+        }
+    }
+
     public void saltarEscena()
     {
         SceneManager.LoadScene("Menu principal");
