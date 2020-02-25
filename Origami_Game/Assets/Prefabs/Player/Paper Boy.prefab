@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 6138424309571967956}
   - component: {fileID: 7541172762944539090}
   - component: {fileID: 8493142909312495948}
+  - component: {fileID: 376315679349286142}
   m_Layer: 0
   m_Name: Paper Boy
   m_TagString: Player
@@ -326,9 +327,10 @@ MonoBehaviour:
   velocidadEmpujando: 3
   distRayoCaja: 2
   distRayoPies: 0.2
+  _usandoPalanca: 0
+  _miraDerecha: 1
   _conCaja: 0
   _enSuelo: 0
-  _miraDerecha: 1
   _timerDash: 0
   capaSuelo:
     serializedVersion: 2
@@ -368,6 +370,18 @@ MonoBehaviour:
   velocidadNado: 10
   saltoAgua: 50
   _enAgua: 0
+--- !u!114 &376315679349286142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490357271322961271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcd738244579234b9203cd70e37aac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3098275355875568925
 GameObject:
   m_ObjectHideFlags: 0
