@@ -77,10 +77,14 @@ public class Player_Nadar : MonoBehaviour
             
         }
 
-        if (transform.rotation.z > rotacionFlip || transform.rotation.z < -rotacionFlip)
+        if (gameObject.transform.localEulerAngles.z > rotacionFlip)
         {
             _sr.flipY = true;
             Debug.Log("Gira");
+        }
+        else
+        {
+            _sr.flipY = false;
         }
 
         if (Input.GetButtonDown("Jump"))
@@ -104,6 +108,7 @@ public class Player_Nadar : MonoBehaviour
             if (Time.time > timerDashAgua + tiempoDashAgua && _cargandoDash)
             {
                 _cargandoDash = false;
+                _dashDisponible = true;
             }
         }
     }
@@ -126,7 +131,6 @@ public class Player_Nadar : MonoBehaviour
     {
         if (collision.CompareTag("Agua") && _enAgua)
         {
-            Debug.Log("Fuera Agua");
             _enAgua = false;
             _instanciaMov.enabled = true;
             _myAnim.SetBool("Humano",true);
