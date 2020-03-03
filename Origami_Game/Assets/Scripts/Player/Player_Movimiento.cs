@@ -334,13 +334,4 @@ public class Player_Movimiento : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + new Vector3(0, .1f, 0), transform.position + new Vector3(0, .1f, 0) + transform.right * distRayoCaja);
     }
-
-    //Activa el script de nadar
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Agua"))
-        {
-            _instaciaNadar.enabled = true;
-        }
-    }
 }
