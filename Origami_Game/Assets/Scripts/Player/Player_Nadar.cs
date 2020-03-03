@@ -23,14 +23,15 @@ public class Player_Nadar : MonoBehaviour
 
     public float tiempoDashAgua;
 
-    public float rotacionFlip = 160;
+    public float rotacionFlipMin = 90;
+    public float rotacionFlipMax = 270;
 
     [HideInInspector]
     public bool _enAgua = false;
 
-    public bool _cargandoDash = false;
+    bool _cargandoDash = false;
     bool _dashDisponible = true;
-    public float timerDashAgua = 0f;
+    public float timerDashAgua = 1f;
     SpriteRenderer _sr;
 
     void Start()
@@ -77,7 +78,7 @@ public class Player_Nadar : MonoBehaviour
             
         }
 
-        if (gameObject.transform.localEulerAngles.z > rotacionFlip)
+        if (gameObject.transform.localEulerAngles.z > rotacionFlipMin && gameObject.transform.localEulerAngles.z < rotacionFlipMax)
         {
             _sr.flipY = true;
             Debug.Log("Gira");
@@ -95,21 +96,19 @@ public class Player_Nadar : MonoBehaviour
 
     void GestionDashAgua()
     {
-        float direccion = Mathf.Sign(Vector2.Dot(_rb.velocity, _rb.GetRelativeVector(Vector2.up)));
         //Detectar input dash.
         if (Input.GetButtonDown("Dash") && !_cargandoDash && _dashDisponible)
         {
                timerDashAgua = Time.time;
                _cargandoDash = true;
                _dashDisponible = false;
-               _rb.velocity = (_rb.velocity * direccion * velocidadDashAgua);
-
-            //Timer Dash.
-            if (Time.time > timerDashAgua + tiempoDashAgua && _cargandoDash)
-            {
-                _cargandoDash = false;
-                _dashDisponible = true;
-            }
+               _rb.velocity = (_rb.velocity * velocidadDashAgua);
+        }
+        //Timer Dash.
+        if (Time.time > timerDashAgua + tiempoDashAgua && _cargandoDash)
+        {
+            _cargandoDash = false;
+            _dashDisponible = true;
         }
     }
 
@@ -132,6 +131,7 @@ public class Player_Nadar : MonoBehaviour
         if (collision.CompareTag("Agua") && _enAgua)
         {
             _enAgua = false;
+            _sr.flipY = false;
             _instanciaMov.enabled = true;
             _myAnim.SetBool("Humano",true);
            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
