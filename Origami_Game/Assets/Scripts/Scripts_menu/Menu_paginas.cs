@@ -13,7 +13,6 @@ public class Menu_paginas : MonoBehaviour
     public void Continuar()
     {
         //guardar las opciones que se han usado
-        GameManager.pausapaginas = false;
         SceneManager.UnloadSceneAsync("Menu paginas");
     }
 }

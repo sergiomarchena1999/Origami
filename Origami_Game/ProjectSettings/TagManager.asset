@@ -7,8 +7,8 @@ TagManager:
   - No Destuir on Load
   - Muerte
   - Agua
-  - Pagina
   - Checkpoint
+  - Pagina
   layers:
   - Default
   - TransparentFX
