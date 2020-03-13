@@ -426,62 +426,7 @@ PrefabInstance:
     - target: {fileID: 490357271322961271, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
       propertyPath: m_Name
-      value: Paper Boy Agua
-      objectReference: {fileID: 0}
-    - target: {fileID: 680099908005400602, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 680099908005400602, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 1.2084377
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.504
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.422
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.010647565
-      objectReference: {fileID: 0}
-    - target: {fileID: 840131377436090421, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.4742031
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498423211132867701, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498423211132867701, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: m_FlipY
-      value: 0
+      value: 'Paper Boy '
       objectReference: {fileID: 0}
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
@@ -537,36 +482,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: giro
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: potencia
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: tiempoDashAgua
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: velocidadDashAgua
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: timerDashAgua
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
-        type: 3}
-      propertyPath: rotacionFlip
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1822e092f7c576c4486653c4374d3610, type: 3}
