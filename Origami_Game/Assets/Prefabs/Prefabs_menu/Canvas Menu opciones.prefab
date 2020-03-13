@@ -573,21 +573,10 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.287
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5258233368071287939}
-        m_MethodName: VolumenSliderMusica
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5258233367978609120
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +986,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuOpciones: {fileID: 5258233369547407301}
-  mixer: {fileID: 24100000, guid: 9245b6bce61b3b946bf6dcc359523a26, type: 2}
 --- !u!1 &5258233368112104087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,18 +1613,7 @@ MonoBehaviour:
   m_Value: 0.585
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5258233368071287939}
-        m_MethodName: VolumenSlider
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
 --- !u!1 &5258233368495027140
 GameObject:
   m_ObjectHideFlags: 0

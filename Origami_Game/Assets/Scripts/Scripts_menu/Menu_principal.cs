@@ -16,7 +16,7 @@ public class Menu_principal : MonoBehaviour
     public void NuevaPartida()
     {
         //TODO: Borrar el player pref
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Menu pausa");
     }
     public void CargarPartida()
     {

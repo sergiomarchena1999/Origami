@@ -14,5 +14,6 @@ public class Menu_paginas : MonoBehaviour
     {
         //guardar las opciones que se han usado
         SceneManager.UnloadSceneAsync("Menu paginas");
+
     }
 }

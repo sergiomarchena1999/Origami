@@ -33,8 +33,8 @@ public class Caja_Movimiento : MonoBehaviour
         if (rayIzq.collider != null || rayDer.collider != null)
         {
             Debug.Log("Me empujan.");
-            _rb.velocity = player.GetComponent<Rigidbody2D>().velocity * .5f;           
-        }
+            _rb.velocity = player.GetComponent<Rigidbody2D>().velocity * 0.85f;
+        }       
     }
 
     //Función llamada por Player_Movimiento cuanco el jugador deja la caja.
@@ -45,15 +45,15 @@ public class Caja_Movimiento : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.tag == "Player")
+        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
         {
-            _rb.mass = 200;
+            _rb.mass = 100;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.tag == "Player")
+        if (!player.GetComponent<Player_Movimiento>()._conCaja && collision.transform.name == "Paper Boy")
         {
             _rb.mass = pesoCaja;
         }
