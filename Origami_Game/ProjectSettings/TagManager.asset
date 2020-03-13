@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pagina
+  - No Destuir on Load
   - Muerte
+  - Agua
+  - Checkpoint
+  - Pagina
   layers:
   - Default
   - TransparentFX
@@ -15,11 +18,11 @@ TagManager:
   - UI
   - 
   - 
-  - Suelo
+  - PostProcesing
   - Caja
-  - 
-  - 
-  - 
+  - Suelo
+  - DestroyParticles
+  - Palanca
   - 
   - 
   - 

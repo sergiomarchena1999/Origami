@@ -31,11 +31,15 @@ public class Player_Movimiento : MonoBehaviour
     public float distRayoPies = .2f;
 
     [HideInInspector]
+    public bool _usandoPalanca = false;
+    [HideInInspector]
+    public bool _miraDerecha = true;
+    [HideInInspector]
     public bool _conCaja = false;
     [HideInInspector]
     public bool _enSuelo = false;
-    bool _cargandoDash = false;
-    bool _miraDerecha = true;
+    bool _dashDisponible = false;    
+    bool _cargandoDash = false;            
 
     //Fuerza del salto del personaje.
     float fuerzaSalto;
@@ -53,6 +57,8 @@ public class Player_Movimiento : MonoBehaviour
     public LayerMask capaSuelo;
     [Tooltip("Seleccionar la layer Caja.")]
     public LayerMask capaCaja;
+    [Tooltip("Seleccionar la layer Palanca.")]
+    public LayerMask capaPalanca;
 
     [Space]
     [Tooltip("Posicion del raycast de la izquierda.")]
@@ -61,8 +67,13 @@ public class Player_Movimiento : MonoBehaviour
     public Transform raycastDer;
 
     //Variables Animator
-    bool isMoving = false;
+    bool _isMoving = false;
+    bool _empujando = false;
+    bool _tirando = false;
     float _velocidadY;
+
+    //Copia para acceder al script de nadar
+    Player_Nadar _instaciaNadar;
 
     void Start()
     {
@@ -74,6 +85,8 @@ public class Player_Movimiento : MonoBehaviour
         _rb.gravityScale = _newGravity;
         //Calculo de la fuerza del salto.
         fuerzaSalto = _rb.gravityScale * tiempoSalto;
+
+        _instaciaNadar = GetComponent<Player_Nadar>();
     }
     
     void Update()
@@ -81,10 +94,11 @@ public class Player_Movimiento : MonoBehaviour
         GestionMovimiento();
         GestionCaja();
         GestionDash();
+        GestionPalanca();
         GestionAnimacion();
 
         if(!_conCaja || _cargandoDash)
-            GestionOrientacion();        
+            GestionOrientacion();
     }
 
     //Esta función se encarga de detectar el input del jugador y convertirlo en movimiento.
@@ -96,40 +110,87 @@ public class Player_Movimiento : MonoBehaviour
         _inputX = Input.GetAxisRaw("Horizontal");
 
         if (rayIzq.collider != null || rayDer.collider != null)
+        {
             _enSuelo = true;
+            _dashDisponible = true;
+        }            
         else if (rayIzq.collider == null && rayDer.collider == null)
             _enSuelo = false;
     
+        //Convertir el input en eje x en movimiento.
         if(!_cargandoDash)
             _rb.velocity = new Vector2((_inputX * _velocidadPlayer), _rb.velocity.y);
 
+        //Ajustar velocidad.
+        if (_conCaja)
+            _velocidadPlayer = velocidadEmpujando;
+        else
+            _velocidadPlayer = velocidadEnSuelo;
+
         //Detectar input salto.
-        if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja)
+        if (Input.GetButtonDown("Jump") && _enSuelo && !_conCaja && !_cargandoDash)
         {
-            _rb.velocity = (Vector2.up * fuerzaSalto);
+            _rb.velocity = (transform.up * fuerzaSalto);
             _anim.SetTrigger("Jump");
         }
 
         _velocidadY = _rb.velocity.y;
     }
-
+    
     void GestionDash()
     {
         //Detectar input dash.
-        if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash)
+        if (Input.GetButtonDown("Dash") && !_conCaja && !_cargandoDash && _dashDisponible)
         {
-            _timerDash = Time.time;
-            _cargandoDash = true;
-            _anim.SetTrigger("Dash");
+            if (Input.GetAxisRaw("Vertical") > .1 && _inputX > .1)
+            {
+                transform.Rotate(0, 0, 45);
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _dashDisponible = false;
 
-            _rb.velocity = (transform.right * velocidadDash);
+                _rb.velocity = (transform.right * velocidadDash);
+            }
+            else if (Input.GetAxisRaw("Vertical") > .1 && _inputX < -.1)
+            {
+                transform.Rotate(0, 0, 45);
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _dashDisponible = false;
+
+                _rb.velocity = (transform.right * velocidadDash);
+            }
+            else if (Input.GetAxisRaw("Vertical") < .1 && _inputX > .1)
+            {
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _dashDisponible = false;
+
+                _rb.velocity = (transform.right * velocidadDash);
+            }
+            else if (Input.GetAxisRaw("Vertical") < .1 && _inputX < -.1)
+            {
+                _timerDash = Time.time;
+                _cargandoDash = true;
+                _anim.SetTrigger("Dash");
+                _dashDisponible = false;
+
+                _rb.velocity = (transform.right * velocidadDash);
+            }
         }
 
         //Timer Dash.
         if (Time.time > _timerDash + tiempoDash && _cargandoDash)
         {
-            Debug.Log("Ya puedes usar el dash.");
             _cargandoDash = false;
+
+            if (_miraDerecha)
+                transform.rotation = Quaternion.identity;
+            else
+                transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
         if (_cargandoDash)
@@ -144,12 +205,12 @@ public class Player_Movimiento : MonoBehaviour
         if (_inputX > 0.01 && _miraDerecha == false)
         {
             _miraDerecha = true;
-            transform.Rotate(0, 180, 0);
+            transform.rotation = Quaternion.identity;            
         }
         else if (_inputX < -0.01 && _miraDerecha == true)
         {
             _miraDerecha = false;
-            transform.Rotate(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         } 
     }
 
@@ -165,7 +226,7 @@ public class Player_Movimiento : MonoBehaviour
                 Debug.Log("Empujando");
                 _conCaja = true;
                 _caja = ray.transform.gameObject.GetComponent<Caja_Movimiento>();
-
+                
                 _caja.EmpujarCaja();
             }
 
@@ -180,23 +241,85 @@ public class Player_Movimiento : MonoBehaviour
         else
         {
             _conCaja = false;
+            _anim.speed = 1;
         }
+        
+        if (_conCaja && _miraDerecha && _inputX > 0.1)
+        {
+            _empujando = true;
+            _tirando = false;
 
-        if (_conCaja)
-            _velocidadPlayer = velocidadEmpujando;
-        else
-            _velocidadPlayer = velocidadEnSuelo;
+            _anim.speed = 1;
+        }
+        else if (_conCaja && !_miraDerecha && _inputX < -0.1)
+        {
+            _empujando = true;
+            _tirando = false;
+
+            _anim.speed = 1;
+        }
+        else if (_conCaja && !_miraDerecha && _inputX > 0.1)
+        {
+            _empujando = false;
+            _tirando = true;
+
+            _anim.speed = 1;
+        }
+        else if (_conCaja && _miraDerecha && _inputX < -0.1)
+        {
+            _empujando = false;
+            _tirando = true;
+
+            _anim.speed = 1;
+        }
+        else if (_conCaja && _inputX == 0)
+        {
+            _empujando = false;
+            _tirando = false;
+
+            _anim.speed = 0;
+        } 
+    }
+
+    void GestionPalanca()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+
+        if (ray.collider != null)
+        {
+            if (Input.GetButton("Usar") && _enSuelo && !ray.collider.GetComponent<Palanca>().activada)
+            {
+                Debug.Log("Palanqueando");
+                _usandoPalanca = true;
+
+                _anim.SetTrigger("UsarPalanca");
+            }
+        }
+    }
+
+    public void UsarPalanca()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+
+        if (ray.collider != null)
+        {
+            ray.collider.GetComponent<Palanca>().UsarPalanca();
+        }
     }
 
     //Función que se encarga de mandarle información al Animator.
     void GestionAnimacion()
     {
         if (_inputX != 0)
-            isMoving = true;
+            _isMoving = true;
         else
-            isMoving = false;
+            _isMoving = false;
 
-        _anim.SetBool("Running", isMoving);
+        _anim.SetBool("ConCaja", _conCaja);
+        _anim.SetBool("Tirando", _tirando);
+        _anim.SetBool("Empujando", _empujando);
+
+        _anim.SetBool("Running", _isMoving);
         _anim.SetBool("Grounded", _enSuelo);
         _anim.SetFloat("VelocidadY", _velocidadY);
     }
@@ -210,5 +333,14 @@ public class Player_Movimiento : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + new Vector3(0, .1f, 0), transform.position + new Vector3(0, .1f, 0) + transform.right * distRayoCaja);
+    }
+
+    //Activa el script de nadar
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Agua"))
+        {
+            _instaciaNadar.enabled = true;
+        }
     }
 }
