@@ -556,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
       propertyPath: velocidadDashAgua
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
