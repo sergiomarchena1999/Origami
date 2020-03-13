@@ -466,5 +466,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Menu principal
       objectReference: {fileID: 0}
+    - target: {fileID: 7895477418331626475, guid: 00444bc6385ed1c4987648d9e0a083bd,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895477419081165844, guid: 00444bc6385ed1c4987648d9e0a083bd,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00444bc6385ed1c4987648d9e0a083bd, type: 3}
