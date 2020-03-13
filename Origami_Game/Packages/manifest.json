@@ -2,7 +2,10 @@
   "dependencies": {
     "com.unity.2d.sprite": "1.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "com.unity.2d.spriteshape": "3.0.7",
+=======
+>>>>>>> parent of a672be1... Merge branch 'Develop' into CopiaSegu2019.2.17
 =======
 >>>>>>> parent of a672be1... Merge branch 'Develop' into CopiaSegu2019.2.17
     "com.unity.2d.tilemap": "1.0.0",
