@@ -7,8 +7,12 @@ public class Boss_Rata : MonoBehaviour
     Animator _anim;
     Rigidbody2D _rb;
 
+    public Transform suelo;
     public Transform destIzq;
     public Transform destDer;
+
+    public GameObject pincho;
+    public Transform spawnPinchos;
 
     public float velocidad = 15f;
     public float tiempoEntreEmbestidas = 4f;
@@ -71,10 +75,7 @@ public class Boss_Rata : MonoBehaviour
     void Embestida()
     {
         Debug.Log("Embisto");
-        Debug.Log(_timerEmbestida);
-        _anim.SetBool("Run", _embestir);
-        
-        
+        _anim.SetBool("Run", _embestir);       
 
         if (transform.position.x == destDer.position.x && _embestir)
         {
@@ -112,6 +113,24 @@ public class Boss_Rata : MonoBehaviour
     {
         Debug.Log("Ataco 1");
         _anim.SetTrigger("Ataque1");
+
+        float num1 = Random.Range(destIzq.position.x, destDer.position.x);
+        float num2 = num1 + Random.Range(destIzq.position.x/3, destDer.position.x/3);
+        float num3 = num1 + Random.Range(destIzq.position.x/4, destDer.position.x/4);
+
+        if (num2 > destDer.position.x || num3 > destDer.position.x)
+        {
+            num2 -= destDer.position.x;
+            num3 -= destDer.position.x;
+        }
+
+        Vector2 pos1 = new Vector2(num1, spawnPinchos.position.y);
+        Vector2 pos2 = new Vector2(num2, spawnPinchos.position.y);
+        Vector2 pos3 = new Vector2(num3, spawnPinchos.position.y);
+
+        Instantiate(pincho, pos1, Quaternion.identity, suelo);
+        Instantiate(pincho, pos2, Quaternion.identity, suelo);
+        Instantiate(pincho, pos3, Quaternion.identity, suelo);
     }
 
     void Muerte()
