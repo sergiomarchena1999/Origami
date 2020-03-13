@@ -17,12 +17,10 @@ public class Menu_opciones : MonoBehaviour
     //////////////////////////////////////
     public void Volver()
     {
-        GameManager.pausaSettings = false;
         SceneManager.UnloadSceneAsync("Menu opciones");
     }
     public void Continuar()
     {
-        GameManager.pausaSettings = false;
         //guardar las opciones que se han usado
         SceneManager.UnloadSceneAsync("Menu opciones");
 
