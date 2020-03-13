@@ -725,6 +725,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -779,11 +784,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1b2921c37b3c540851f6a2cbca9ca5, type: 3}
@@ -1694,7 +1694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309776636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 403.54828, y: -3.5503113, z: -15}
+  m_LocalPosition: {x: 397.32162, y: -3.5503113, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1019697054}
@@ -1708,11 +1708,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1398874898}
     m_Modifications:
-    - target: {fileID: 2827518073616760492, guid: cbfd45d5e2e87954b8a7e2f911ef4804,
-        type: 3}
-      propertyPath: m_Name
-      value: Agua (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 316830578, guid: cbfd45d5e2e87954b8a7e2f911ef4804, type: 3}
       propertyPath: m_Offset.x
       value: 7.7250843
@@ -1785,6 +1780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 27.629772
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827518073616760492, guid: cbfd45d5e2e87954b8a7e2f911ef4804,
+        type: 3}
+      propertyPath: m_Name
+      value: Agua (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2866061033715450819, guid: cbfd45d5e2e87954b8a7e2f911ef4804,
         type: 3}
@@ -28124,6 +28124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28178,11 +28183,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8376359516496018920, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
@@ -28383,6 +28383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28437,11 +28442,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8376359516496018920, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
@@ -28594,6 +28594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28648,11 +28653,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1b2921c37b3c540851f6a2cbca9ca5, type: 3}
@@ -34848,6 +34848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34902,11 +34907,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8376359516496018920, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
@@ -42456,7 +42456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211250569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 403.54828, y: -3.5503113, z: -15}
+  m_LocalPosition: {x: 397.32162, y: -3.5503113, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43187,6 +43187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43241,11 +43246,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1b2921c37b3c540851f6a2cbca9ca5, type: 3}
@@ -43495,11 +43495,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4646834783572628912, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
-        type: 3}
-      propertyPath: m_Name
-      value: Caja
-      objectReference: {fileID: 0}
     - target: {fileID: 4646834783572628878, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43554,6 +43549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646834783572628912, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Caja
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f09d9fdd8d9e640ab28d108b1c2fbc, type: 3}
@@ -46569,14 +46569,8 @@ PrefabInstance:
     - target: {fileID: 6026436175481517351, guid: 33f08baad565603408109e63a5bd66ad,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6026436175481517351, guid: 33f08baad565603408109e63a5bd66ad,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5dab86600c7f9fb49b2ca51b3da7b66d,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33f08baad565603408109e63a5bd66ad, type: 3}
 --- !u!1 &1836576795
@@ -47192,6 +47186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palanca (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1663912455040459785, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47246,11 +47245,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663912455040459784, guid: fd1b2921c37b3c540851f6a2cbca9ca5,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd1b2921c37b3c540851f6a2cbca9ca5, type: 3}
@@ -48702,11 +48696,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1398874898}
     m_Modifications:
-    - target: {fileID: 2827518073616760492, guid: cbfd45d5e2e87954b8a7e2f911ef4804,
-        type: 3}
-      propertyPath: m_Name
-      value: Agua
-      objectReference: {fileID: 0}
     - target: {fileID: 1183355565503157404, guid: cbfd45d5e2e87954b8a7e2f911ef4804,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48761,6 +48750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827518073616760492, guid: cbfd45d5e2e87954b8a7e2f911ef4804,
+        type: 3}
+      propertyPath: m_Name
+      value: Agua
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbfd45d5e2e87954b8a7e2f911ef4804, type: 3}
