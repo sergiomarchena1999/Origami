@@ -1694,7 +1694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309776636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 397.32162, y: -3.5503113, z: -15}
+  m_LocalPosition: {x: 3.8759336, y: 0.84968877, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1019697054}
@@ -42456,7 +42456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211250569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 397.32162, y: -3.5503113, z: -15}
+  m_LocalPosition: {x: 3.8759336, y: 0.84968877, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44306,12 +44306,12 @@ PrefabInstance:
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 391.3
+      value: -8.4
       objectReference: {fileID: 0}
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.8
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
         type: 3}
@@ -44357,6 +44357,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: velocidadDashAgua
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1822e092f7c576c4486653c4374d3610, type: 3}

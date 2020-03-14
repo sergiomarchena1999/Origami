@@ -326,9 +326,10 @@ MonoBehaviour:
   velocidadEmpujando: 3
   distRayoCaja: 2
   distRayoPies: 0.2
+  _usandoPalanca: 0
+  _miraDerecha: 1
   _conCaja: 0
   _enSuelo: 0
-  _miraDerecha: 1
   _timerDash: 0
   capaSuelo:
     serializedVersion: 2
@@ -367,7 +368,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadNado: 10
   saltoAgua: 50
+  giro: 100
+  potencia: 200
+  velocidadDashAgua: 50
+  tiempoDashAgua: 0
+  rotacionFlipMin: 90
+  rotacionFlipMax: 270
   _enAgua: 0
+  timerDashAgua: 1
 --- !u!1 &3098275355875568925
 GameObject:
   m_ObjectHideFlags: 0
