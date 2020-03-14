@@ -482,6 +482,49 @@ PrefabInstance:
     - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
         type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
+=======
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754895563136091833, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: giro
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: potencia
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: tiempoDashAgua
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: velocidadDashAgua
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493142909312495948, guid: 1822e092f7c576c4486653c4374d3610,
+        type: 3}
+      propertyPath: timerDashAgua
+>>>>>>> parent of e4ccc66... Nado Final
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2644144876650318544, guid: 0de0ec675de01f24080627e72168508e,
