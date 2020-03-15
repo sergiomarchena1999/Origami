@@ -25,6 +25,6 @@ public class Activable : MonoBehaviour
             activado = true;
         }
 
-        _anim.SetBool("Activado", activado);
+        _anim.SetTrigger("Activado");
     }
 }
