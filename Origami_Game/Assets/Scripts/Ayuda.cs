@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ayuda : MonoBehaviour
 {
-    GameObject imagenAyuda;
+    public GameObject imagenAyuda;
     
 
 
@@ -16,12 +17,13 @@ public class Ayuda : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Pito");
+        print("hello");
         if(collision.transform.CompareTag("Player"))
         {
             imagenAyuda.SetActive(true);
-           
-            Debug.Log("Pene");
+
+            
         }
     }
+    
 }

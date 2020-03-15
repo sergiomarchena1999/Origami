@@ -108,7 +108,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.438
+    value: 0.371
   smoothness:
     overrideState: 1
     value: 0.268
@@ -150,7 +150,7 @@ MonoBehaviour:
     value: 0.227
   fastMode:
     overrideState: 1
-    value: 1
+    value: 0
 --- !u!114 &-196314292963237028
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -169,7 +169,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 14.65
+    value: 8.39
   aperture:
     overrideState: 1
     value: 0.7
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: PostProcesing Profile 1
+  m_Name: PostProMENU
   m_EditorClassIdentifier: 
   settings:
   - {fileID: -7788749513347205544}
