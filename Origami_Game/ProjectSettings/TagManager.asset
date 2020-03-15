@@ -9,6 +9,7 @@ TagManager:
   - Agua
   - Checkpoint
   - Pagina
+  - SpawnRata
   layers:
   - Default
   - TransparentFX

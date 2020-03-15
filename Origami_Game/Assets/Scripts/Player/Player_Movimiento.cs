@@ -217,7 +217,7 @@ public class Player_Movimiento : MonoBehaviour
     //Función que se encarga de qué hacer cuando se empuja o tira de una caja.
     void GestionCaja()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0,.1f,0), transform.forward, distRayoCaja, capaCaja);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0,.1f,0), transform.right, distRayoCaja, capaCaja);
 
         if (ray.collider != null)
         {
@@ -283,7 +283,7 @@ public class Player_Movimiento : MonoBehaviour
 
     void GestionPalanca()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.right, distRayoCaja, capaPalanca);
 
         if (ray.collider != null)
         {
@@ -299,7 +299,7 @@ public class Player_Movimiento : MonoBehaviour
 
     public void UsarPalanca()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.forward, distRayoCaja, capaPalanca);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position + new Vector3(0, .1f, 0), transform.right, distRayoCaja, capaPalanca);
 
         if (ray.collider != null)
         {
@@ -341,6 +341,11 @@ public class Player_Movimiento : MonoBehaviour
         if (collision.CompareTag("Agua"))
         {
             _instaciaNadar.enabled = true;
+        }
+
+        if (collision.CompareTag("SpawnRata"))
+        {
+            GameObject.Find("RataParent").GetComponent<Boss_Rata>().enabled = true;
         }
     }
 }
