@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MuertePlayer : MonoBehaviour
 {
-    public string Scene;
+    public static string Scene;
     Animator _myAnim;
     ParticleSystem[] _myPS;
 
