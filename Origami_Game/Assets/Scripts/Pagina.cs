@@ -19,8 +19,8 @@ public class Pagina : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //llama a los metosdos para guardar info y salvarla en playerPref
-            gM.SaveData("pag1", "1");
-            gM.SavePlayerData();
+            //gM.SaveData("pag1", "1");
+            //gM.SavePlayerData();
             Invoke("NextScene", 0.2f);
         }
     }
