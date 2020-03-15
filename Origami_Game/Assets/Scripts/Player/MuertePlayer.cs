@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MuertePlayer : MonoBehaviour
 {
+    public string Scene;
     Animator _myAnim;
     ParticleSystem[] _myPS;
 
@@ -26,9 +27,15 @@ public class MuertePlayer : MonoBehaviour
                 _myPS[i].Play();
             }
 
-            SceneManager.LoadScene(("Menu muerte"), LoadSceneMode.Additive);
+            
             Destroy(GetComponent<Player_Movimiento>());
-            Destroy(gameObject, 6f);            
+            Invoke("restart", 6);
+            Destroy(gameObject, 6.1f);
         }
+        
+    }
+    void restart()
+    {
+        SceneManager.LoadScene((Scene));
     }
 }

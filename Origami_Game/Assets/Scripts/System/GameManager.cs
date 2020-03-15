@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void StartingLoad()
+    public void StartingLoad()
     {
         //Opciones del menu.
         if (PlayerPrefs.GetInt(CheckPref("PantallaCompleta", "Int")) == 0)

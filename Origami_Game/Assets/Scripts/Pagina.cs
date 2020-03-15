@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Pagina : MonoBehaviour
 {
-    public GameManager gM;
-
+    GameManager gm = new GameManager();
     private void Start()
     {
         
@@ -19,8 +18,9 @@ public class Pagina : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //llama a los metosdos para guardar info y salvarla en playerPref
-            //gM.SaveData("pag1", "1");
-            //gM.SavePlayerData();
+            //gm.SaveData("pag1","1");
+            //gm.SavePlayerData();
+            //gm.StartingLoad();
             Invoke("NextScene", 0.2f);
         }
     }
@@ -28,7 +28,7 @@ public class Pagina : MonoBehaviour
     void NextScene()
     {
 
-        SceneManager.LoadScene("Prueba_Nivel_02");
+        SceneManager.LoadScene("Transicion 1 2");
         
     }
 }

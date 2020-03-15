@@ -830,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b18c4b72e5ba943ba552de815beb10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Escena: Menu principal
   time: 36
 --- !u!1 &1931291952
 GameObject:

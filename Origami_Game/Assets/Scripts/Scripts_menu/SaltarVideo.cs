@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SaltarVideo : MonoBehaviour
 {
+    public string Escena;
     public float time;
     private void Start()
     {
@@ -14,6 +15,6 @@ public class SaltarVideo : MonoBehaviour
 
     public void saltarEscena()
     {
-        SceneManager.LoadScene("Menu principal");
+        SceneManager.LoadScene(Escena);
     }
 }

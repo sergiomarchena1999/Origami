@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prueba_Nivel_02.unity
     guid: dc418e9a5d895e0468ccfedcae5ac53d
+  - enabled: 1
+    path: Assets/Scenes/Transicion 1 2.unity
+    guid: de573321d73fad44d9a14cb5daf89cda
   m_configObjects: {}
