@@ -277,6 +277,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void SavePlayerData()
+    {
+
+
+
+
+
+        PlayerPrefs.Save();
+    }
+
+
+
     #endregion
 
 
