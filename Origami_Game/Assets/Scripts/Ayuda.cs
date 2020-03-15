@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Ayuda : MonoBehaviour
 {
-    //public GameObject imagenAyuda;
+    public GameObject imagenAyuda;
     
 
 
     void Start()
     {
-        //imagenAyuda = transform.Find("Ayuda").gameObject;
+        imagenAyuda = transform.Find("Ayuda").gameObject;
        
     }
 
@@ -20,14 +20,10 @@ public class Ayuda : MonoBehaviour
         print("hello");
         if(collision.transform.CompareTag("Player"))
         {
-            //imagenAyuda.SetActive(true);
+            imagenAyuda.SetActive(true);
 
-            Invoke("SiguienteNivel",0.2f);
+            
         }
     }
-
-    void SiguienteNivel()
-    {
-        SceneManager.LoadScene("Prueba_Nivel_02");
-    }
+    
 }

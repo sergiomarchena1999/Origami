@@ -135,10 +135,10 @@ public class GameManager : MonoBehaviour
             //Reset Opciones a valores dados en el inspector.
             PlayerPrefs.SetFloat("VolumenGeneral", resetVolumenGeneral);
             PlayerPrefs.SetFloat("VolumenMusica", resetMusica);
-            PlayerPrefs.SetFloat("VolumenEfectos", resetLastCheckpoint);
+            PlayerPrefs.SetFloat("VolumenEfectos", resetEfectos);
 
             //reset Pantalla y Vabracion.
-            if (pantallaCompleta==true)
+            if (resetPantallaCompleta == true)
             {
                 PlayerPrefs.SetInt("PantallaCompleta", 1);
             }
@@ -282,7 +282,42 @@ public class GameManager : MonoBehaviour
     {
 
 
+        //Reset posicion checkpoint a valores dados en el inspector.
+        PlayerPrefs.SetFloat("posicionx", lastCheckpointX);
+        PlayerPrefs.SetFloat("posiciony", lastCheckpointY);
+        PlayerPrefs.SetFloat("posicionz", lastCheckpointZ);
+        //Reset paginas a valores dados en el inspector.
+        for (int i = 0; i < 5; i++)
+        {
+            if (PlayerPrefs.HasKey("pag" + i))
+            {
+                PlayerPrefs.SetFloat("pag" + i, paginas[i]);
+            }
+        }
+        //Reset Checkpoint a valores dados en el inspector.
+        PlayerPrefs.SetInt("NivelActual", lastCheckpoint);
+        //Reset Opciones a valores dados en el inspector.
+        PlayerPrefs.SetFloat("VolumenGeneral", volumenGeneral);
+        PlayerPrefs.SetFloat("VolumenMusica", musica);
+        PlayerPrefs.SetFloat("VolumenEfectos", efectos);
 
+        //reset Pantalla y Vabracion.
+        if (pantallaCompleta == true)
+        {
+            PlayerPrefs.SetInt("PantallaCompleta", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("PantallaCompleta", 0);
+        }
+        if (vibracionDePantalla == true)
+        {
+            PlayerPrefs.SetInt("VibracionDePantalla", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("VibracionDePantalla", 0);
+        }
 
 
         PlayerPrefs.Save();
