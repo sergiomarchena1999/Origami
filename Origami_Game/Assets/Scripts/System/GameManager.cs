@@ -9,11 +9,6 @@ public class GameManager : MonoBehaviour
     //##########---[ Variablees ]---##########################################<
 
     #region Variablees
-
-    public static bool pausa = false;
-    public static bool pausaSettings = false;
-    public static bool pausapaginas = false;
-
     //----[Menu de Opciones]--------<
     [SerializeField]
     [Header("Actual Options Data")]
@@ -282,49 +277,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SavePref()
+    public void SavePlayerData()
     {
-        //Reset posicion checkpoint a valores dados en el inspector.
-        PlayerPrefs.SetFloat("posicionx", lastCheckpointX);
-        PlayerPrefs.SetFloat("posiciony", lastCheckpointY);
-        PlayerPrefs.SetFloat("posicionz", lastCheckpointZ);
-        //Reset paginas a valores dados en el inspector.
-        for (int i = 0; i < 5; i++)
-        {
-            if (PlayerPrefs.HasKey("pag" + i))
-            {
-                PlayerPrefs.SetFloat("pag" + i, paginas[i]);
-            }
-        }
-        //Reset Checkpoint a valores dados en el inspector.
-        PlayerPrefs.SetInt("NivelActual", lastCheckpoint);
-        //Reset Opciones a valores dados en el inspector.
-        PlayerPrefs.SetFloat("VolumenGeneral", volumenGeneral);
-        PlayerPrefs.SetFloat("VolumenMusica", musica);
-        PlayerPrefs.SetFloat("VolumenEfectos", lastCheckpoint);
 
-        //reset Pantalla y Vabracion.
-        if (pantallaCompleta == true)
-        {
-            PlayerPrefs.SetInt("PantallaCompleta", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("PantallaCompleta", 0);
-        }
-        if (resetVibracionDePantalla == true)
-        {
-            PlayerPrefs.SetInt("VibracionDePantalla", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("VibracionDePantalla", 0);
-        }
+
 
 
 
         PlayerPrefs.Save();
     }
+
+
     #endregion
 
 
