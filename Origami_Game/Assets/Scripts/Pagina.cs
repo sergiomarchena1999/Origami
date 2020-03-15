@@ -15,7 +15,7 @@ public class Pagina : MonoBehaviour
             PlayerPrefs.SetInt("pag" +numPagina, 1);
 
             PlayerPrefs.Save();
-            Destroy(gameObject);
+            
         }
     }
 }

@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ayuda : MonoBehaviour
 {
-    GameObject imagenAyuda;
+    //public GameObject imagenAyuda;
     
 
 
     void Start()
     {
-        imagenAyuda = transform.Find("Ayuda").gameObject;
+        //imagenAyuda = transform.Find("Ayuda").gameObject;
        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Pito");
+        print("hello");
         if(collision.transform.CompareTag("Player"))
         {
-            imagenAyuda.SetActive(true);
-           
-            Debug.Log("Pene");
+            //imagenAyuda.SetActive(true);
+
+            Invoke("SiguienteNivel",0.2f);
         }
+    }
+
+    void SiguienteNivel()
+    {
+        SceneManager.LoadScene("Prueba_Nivel_02");
     }
 }

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu paginas.unity
     guid: efba1cf280d54ee4d96e5d8eb0131044
+  - enabled: 1
+    path: Assets/Scenes/Prueba_Nivel_02.unity
+    guid: dc418e9a5d895e0468ccfedcae5ac53d
   m_configObjects: {}
