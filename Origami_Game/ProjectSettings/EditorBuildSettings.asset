@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Transicion 1 2.unity
     guid: de573321d73fad44d9a14cb5daf89cda
+  - enabled: 1
+    path: Assets/Scenes/Menu pausa.unity
+    guid: 06ffc7a6a52e57b4ca183df7cc8381cf
   m_configObjects: {}

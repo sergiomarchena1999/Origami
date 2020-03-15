@@ -196,7 +196,6 @@ Transform:
   m_Children:
   - {fileID: 8529185357396846122}
   - {fileID: 8529185357015958539}
-  - {fileID: 8529185358706111451}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -295,7 +294,7 @@ MonoBehaviour:
   destIzq: {fileID: 8529185358332084435}
   destDer: {fileID: 8529185357730574891}
   pincho: {fileID: 1977798067412277213, guid: 4e978c6770d5e0a48be7c2cb5a58057b, type: 3}
-  spawnPinchos: {fileID: 8529185358706111451}
+  spawnPinchos: {fileID: 0}
   velocidad: 15
   tiempoEntreEmbestidas: 2
 --- !u!1 &8529185357396846121
@@ -466,34 +465,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8529185357396846122}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8529185358706111448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8529185358706111451}
-  m_Layer: 0
-  m_Name: SpawnPinchos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8529185358706111451
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529185358706111448}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.217304, y: 14.668704, z: -0.4451923}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 358021451417382217}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

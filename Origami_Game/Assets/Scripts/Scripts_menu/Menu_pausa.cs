@@ -14,7 +14,7 @@ public class Menu_pausa : MonoBehaviour
     public void Volver()
     {
         Time.timeScale = 1;
-        //GameManager.pausa = false;
+        GameManager.pausa = false;
         SceneManager.UnloadSceneAsync("Menu pausa");
     }
 
@@ -31,8 +31,8 @@ public class Menu_pausa : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 1;
-        //GameManager.pausa = false;
-        SceneManager.UnloadSceneAsync("Menu pausa");
+        GameManager.pausa = false;
+        SceneManager.LoadScene("Menu principal");
     }
 
 }

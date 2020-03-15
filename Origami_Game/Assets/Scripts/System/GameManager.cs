@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     [Range(0, 1)]
     float efectos =0;
-    
+
+    public static bool pausa=false;
 
 
     //----[Player Settings]--------<
