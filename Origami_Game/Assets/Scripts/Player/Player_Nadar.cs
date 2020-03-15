@@ -19,14 +19,27 @@ public class Player_Nadar : MonoBehaviour
     [Tooltip("Potencia de nado")]
     public float potencia = 10;
 
+    public float velocidadDashAgua;
+
+    public float tiempoDashAgua;
+
+    public float rotacionFlipMin = 90;
+    public float rotacionFlipMax = 270;
+
     [HideInInspector]
     public bool _enAgua = false;
+
+    bool _cargandoDash = false;
+    bool _dashDisponible = true;
+    public float timerDashAgua = 1f;
+    SpriteRenderer _sr;
 
     void Start()
     {
         _myAnim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _instanciaMov = GetComponent<Player_Movimiento>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -35,7 +48,8 @@ public class Player_Nadar : MonoBehaviour
         {
             CapturarEjes();
             GestionNado();
-        }  
+            GestionDashAgua();
+        }
     }
 
     void CapturarEjes()
@@ -48,19 +62,31 @@ public class Player_Nadar : MonoBehaviour
     void GestionNado()
     {
         float vmax;
-        float direccion = Mathf.Sign(Vector2.Dot(_rb.velocity, _rb.GetRelativeVector(Vector2.up)));
-        _rb.velocity = transform.up * _rb.velocity.magnitude * direccion;
+
 
         float torque = _inputX * giro * Time.deltaTime;
-        _rb.AddTorque(-torque * direccion);
+        _rb.AddTorque(-torque * 100);
+
 
         vmax = velocidadNado;
 
-        //if (_rb.velocity.magnitude < vmax)
-        //{
+        if (_rb.velocity.magnitude < vmax)
+        {
             float aceleracion = _inputY * potencia * Time.deltaTime;
-            _rb.AddForce(transform.up * aceleracion);
-        //}
+
+            _rb.AddForce(transform.right * aceleracion * 100);
+
+        }
+
+        if (gameObject.transform.localEulerAngles.z > rotacionFlipMin && gameObject.transform.localEulerAngles.z < rotacionFlipMax)
+        {
+            _sr.flipY = true;
+            Debug.Log("Gira");
+        }
+        else
+        {
+            _sr.flipY = false;
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -68,14 +94,34 @@ public class Player_Nadar : MonoBehaviour
         }
     }
 
+    void GestionDashAgua()
+    {
+        //Detectar input dash.
+        if (Input.GetButtonDown("Dash") && !_cargandoDash && _dashDisponible)
+        {
+            timerDashAgua = Time.time;
+            _cargandoDash = true;
+            _dashDisponible = false;
+            _rb.velocity = (_rb.velocity * velocidadDashAgua);
+        }
+        //Timer Dash.
+        if (Time.time > timerDashAgua + tiempoDashAgua && _cargandoDash)
+        {
+            _cargandoDash = false;
+            _dashDisponible = true;
+        }
+    }
+
     //Desactiva el código de movimiento y activa la animación de transformación a pez
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Agua") && !_enAgua )
+        if (collision.CompareTag("Agua") && !_enAgua)
         {
             _enAgua = true;
             _instanciaMov.enabled = false;
+            _rb.constraints = RigidbodyConstraints2D.None;
             _myAnim.SetTrigger("Pez");
+            _myAnim.SetBool("Humano", false);
         }
     }
 
@@ -84,10 +130,13 @@ public class Player_Nadar : MonoBehaviour
     {
         if (collision.CompareTag("Agua") && _enAgua)
         {
-            Debug.Log("Fuera Agua");
             _enAgua = false;
+            _sr.flipY = false;
             _instanciaMov.enabled = true;
-            _myAnim.SetTrigger("Humano");
-        } 
+            _myAnim.SetBool("Humano", true);
+            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            transform.rotation = Quaternion.identity;
+        }
     }
 }
+
