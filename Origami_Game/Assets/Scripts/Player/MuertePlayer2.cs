@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MuertePlayer2 : MonoBehaviour
+public class MuertePlayer : MonoBehaviour
 {
-    public string Scene2 = "Testing Nivel";
-    Animator _myAnim2;
-    ParticleSystem[] _myPS2;
+    [SerializeField]
+    public static string Scene= "Prueba_Nivel_02";
+    Animator _myAnim;
+    ParticleSystem[] _myPS;
 
     void Start()
     {
-        _myAnim2 = GetComponent<Animator>();        
+        _myAnim = GetComponent<Animator>();        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Muerte"))
         {            
-            _myAnim2.SetTrigger("Death");
+            _myAnim.SetTrigger("Death");
             transform.rotation = Quaternion.identity;
-            _myPS2 = GetComponentsInChildren<ParticleSystem>();
+            _myPS = GetComponentsInChildren<ParticleSystem>();
 
-            for (int i = 0; i < _myPS2.Length; i ++)
+            for (int i = 0; i < _myPS.Length; i ++)
             {
-                _myPS2[i].Play();
+                _myPS[i].Play();
             }
 
             
@@ -36,6 +37,6 @@ public class MuertePlayer2 : MonoBehaviour
     }
     void restart()
     {
-        SceneManager.LoadScene((Scene2));
+        SceneManager.LoadScene((Scene));
     }
 }

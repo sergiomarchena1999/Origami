@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu pausa.unity
     guid: 06ffc7a6a52e57b4ca183df7cc8381cf
+  - enabled: 1
+    path: Assets/Scenes/Muerte.unity
+    guid: fe10e37b70e06a242aaccf0d34e60687
   m_configObjects: {}
